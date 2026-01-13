@@ -1,10 +1,28 @@
 const categories = [
-  { title: "Bebidas y Envases Alimentarios", image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=600" },
-  { title: "Empaques y Papelería", image: "https://images.unsplash.com/photo-1520443240718-fce21901db79?q=80&w=600" },
-  { title: "Ciencia y Laboratorio", image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=600" },
-  { title: "Mantenimiento y Taller", image: "https://images.unsplash.com/photo-1444212477490-ca407925329e?q=80&w=600" },
-  { title: "Restos de Comida", image: "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?q=80&w=600" },
-  { title: "Higiene y Otros", image: "https://images.unsplash.com/photo-1451187530230-b81e73b95616?q=80&w=600" },
+  { 
+    title: "Bebidas y Envases Alimentarios", 
+    image: "./Docs/Bebidas.png" 
+  },
+  { 
+    title: "Empaques y Papelería", 
+    image: "./Docs/Empaques.png" 
+  },
+  { 
+    title: "Ciencia y Laboratorio", 
+    image: "./Docs/Ciencia.png" 
+  },
+  { 
+    title: "Mantenimiento y Taller", 
+    image: "./Docs/Mantenimiento.png" 
+  },
+  { 
+    title: "Restos de Comida", 
+    image: "./Docs/Restos.png" 
+  },
+  { 
+    title: "Higiene y Otros", 
+    image: "./Docs/Higene.png" 
+  },
 ];
 
 export default function SegregacionPage() {

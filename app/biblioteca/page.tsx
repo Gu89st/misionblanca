@@ -3,15 +3,18 @@ import React from 'react';
 const documentos = [
   {
     titulo: "Flora y Fauna de la base antártica",
-    imagen: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=400",
+    imagen: "https://images.unsplash.com/photo-1517783999520-f068d7431a60?auto=format&fit=crop&q=80&w=800",
+    archivo: "./docs/Flora_y_fauna_de_la_base_antartica.pdf",
   },
   {
     titulo: "Protocolo de Madrid",
-    imagen: "https://images.unsplash.com/photo-1532187875605-2fe358a3d46a?auto=format&fit=crop&q=80&w=400",
+    imagen: "./docs/Protocolo_de_madrid.png",
+    archivo: "./docs/Protocolo_de_madrid.pdf",
   },
   {
     titulo: "Treaty Original",
-    imagen: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=400",
+    imagen: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=800",
+    archivo: "/docs/treaty_original.pdf",
   }
 ];
 
@@ -38,20 +41,23 @@ export default function BibliotecaPage() {
       </header>
 
       {/* GRID DE DOCUMENTOS: RESPONSIVE CORREGIDO */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {documentos.map((doc, index) => (
-          <div key={index} className="group cursor-pointer">
-            {/* Contenedor de la Tarjeta */}
+          /* Envolvemos la tarjeta en un enlace <a> con la propiedad download */
+          <a 
+            key={index} 
+            href={doc.archivo} 
+            download 
+            className="group cursor-pointer block"
+            title={`Descargar ${doc.titulo}`}
+          >
             <div className="aspect-3/4 bg-slate-900 rounded-2xl border-2 border-white/10 overflow-hidden relative shadow-2xl group-hover:border-blue-500/50 group-hover:-translate-y-2 transition-all duration-500">
-              
-              {/* LA IMAGEN: AQUÍ ESTABA EL ERROR (Cambiado de .image a .imagen) */}
               <img 
                 src={doc.imagen} 
                 alt={doc.titulo}
                 className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" 
               />
-              
-              {/* Degradado y Texto Inferior */}
+
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent flex items-end p-6">
                 <span 
                   className="text-[11px] font-bold uppercase tracking-widest leading-tight text-white"
@@ -59,7 +65,7 @@ export default function BibliotecaPage() {
                 />
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </main>
