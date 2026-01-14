@@ -20,7 +20,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Botón Hamburguesa (Solo visible en móvil) */}
+        {/* Botón Hamburguesa */}
         <button 
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
@@ -32,15 +32,15 @@ export default function Navbar() {
           </div>
         </button>
 
-        {/* Links de Navegación (Escritorio) */}
+        {/* Links de Navegación */}
         <div className="hidden md:flex items-center gap-8">
-            <NavLink href="/" label="Segregación" active />
+            <NavLink href="/segregacion" label="Segregación" active />
             <NavLink href="/biblioteca" label="Biblioteca" /> 
             <NavLink href="/datos-curiosos" label="Datos" />
         </div>
       </div>
 
-      {/* Menú Desplegable (Móvil) */}
+      {/* Menú Desplegable*/}
       <div className={`md:hidden absolute top-20 left-4 right-4 bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 transition-all duration-300 ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
         <div className="flex flex-col gap-6 items-center">
             <Link href="/" onClick={() => setIsOpen(false)}>Segregación</Link>

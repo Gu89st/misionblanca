@@ -1,6 +1,4 @@
-import React from 'react';
 
-// Definimos la estructura de los datos para TypeScript
 interface DatoCurioso {
   id: number;
   pregunta: string;
@@ -28,7 +26,7 @@ export default function DatosCuriososPage() {
   return (
     <div className="max-w-7xl mx-auto px-6 pb-30 pt-5">
       
-      {/* Encabezado Principal */}
+      {/* Encabezado */}
       <header className="mb-12">
         <h1 className="text-4xl font-bold tracking-tight mb-2 text-white">
           Datos Curiosos
@@ -38,7 +36,7 @@ export default function DatosCuriososPage() {
         </p>
       </header>
 
-      {/* Grid de Tarjetas Responsive */}
+      {/* Grid de Tarjetas */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
         {datos.map((item) => (
           <article 
@@ -55,7 +53,7 @@ export default function DatosCuriososPage() {
               <div className="absolute inset-0 bg-linear-to-t "></div>
             </div>
 
-            {/* Contenido de Texto */}
+            {/* Contenido  */}
             <div className="p-8">
               <h3 className="text-xl font-bold leading-tight mb-4 group-hover:text-blue-400 transition-colors">
                 {item.pregunta}
@@ -66,7 +64,7 @@ export default function DatosCuriososPage() {
             </div>
           </article>
         ))}
-        {/* Sección de Video YouTube */}
+        {/*Video YouTube */}
       
       </div>
       <section className="mt-20">

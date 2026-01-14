@@ -22,7 +22,7 @@ export default function BibliotecaPage() {
   return (
     <main className="max-w-7xl mx-auto px-6 pb-20 pt-10">
       
-      {/* ENCABEZADO: IDÉNTICO A TU SEGUNDA IMAGEN */}
+      {/* ENCABEZADO*/}
       <header className="mb-12 flex justify-between items-end border-b border-white/10 pb-8">
         <div>
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
@@ -40,10 +40,9 @@ export default function BibliotecaPage() {
         </div>
       </header>
 
-      {/* GRID DE DOCUMENTOS: RESPONSIVE CORREGIDO */}
+      {/* GRID DE DOCUMENTOS*/}
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {documentos.map((doc, index) => (
-          /* Envolvemos la tarjeta en un enlace <a> con la propiedad download */
           <a 
             key={index} 
             href={doc.archivo} 
