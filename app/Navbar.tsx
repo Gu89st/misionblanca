@@ -36,7 +36,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-8">
             <NavLink href="/segregacion" label="Segregación" active />
             <NavLink href="/biblioteca" label="Biblioteca" /> 
-            <NavLink href="/datos-curiosos" label="Datos" />
+            <NavLink href="/datos-curiosos" label="Datos Curiosos" />
         </div>
       </div>
 
