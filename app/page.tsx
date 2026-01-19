@@ -1,55 +1,93 @@
+"use client";
+
+import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation"; // Importación necesaria para rutas
+
 const categories = [
-  { 
-    title: "Bebidas y Envases Alimentarios", 
-    image: "./Docs/Bebidas.png" 
-  },
-  { 
-    title: "Empaques y Papelería", 
-    image: "./Docs/Empaques.png" 
-  },
-  { 
-    title: "Ciencia y Laboratorio", 
-    image: "./Docs/Ciencia.png" 
-  },
-  { 
-    title: "Mantenimiento y Taller", 
-    image: "./Docs/Mantenimiento.png" 
-  },
-  { 
-    title: "Restos de Comida", 
-    image: "./Docs/Restos.png" 
-  },
-  { 
-    title: "Higiene y Otros", 
-    image: "./Docs/Higene.png" 
-  },
+  { title: "Bebidas y Envases Alimentarios", image: "./Docs/Bebidas.png", anchor: "material-1" },
+  { title: "Empaques y Papelería", image: "./Docs/Empaques.png", anchor: "material-2" },
+  { title: "Ciencia y Laboratorio", image: "./Docs/Ciencia.png", anchor: "material-3" },
+  { title: "Mantenimiento y Taller", image: "./Docs/Mantenimiento.png", anchor: "material-4" },
+  { title: "Restos de Comida", image: "./Docs/Restos.png", anchor: "material-5" },
+  { title: "Higiene y Otros", image: "./Docs/Higene.png", anchor: "material-6" },
 ];
 
 export default function SegregacionPage() {
+  const router = useRouter();
+
+  const handleNavigation = (anchorId: string) => {
+    // Intenta encontrar el elemento en la página actual
+    const element = document.getElementById(anchorId);
+
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Redirige a la página de segregación con el anchor
+      router.push(`/segregacion#${anchorId}`);
+    }
+  };
+
   return (
-    <section className="max-w-7xl mx-auto px-6 py-12 mt-20">
-      <h2 className="text-xl font-semibold mb-8 flex items-center gap-2">
-        <span className="w-8 h-0.5 bg-emerald-500"></span>
-        Segregación: Explora y Aprende
-      </h2>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {categories.map((item, index) => (
-          <div 
-            key={index}
-            className="aspect-video rounded-3xl overflow-hidden border-2 border-white/40 cursor-pointer hover:border-blue-500 transition-all group relative shadow-lg"
+    <div className="min-h-screen bg-[#0a0f18] text-white">
+      {/* SECCIÓN HERO */}
+      <section className="max-w-7xl mx-auto px-6 pt-32 pb-12 flex flex-col items-center text-center">
+        <h1 className="text-3xl md:text-5xl font-black tracking-tighter mb-8 uppercase">
+          Segregamos en la ECAMP
+        </h1>
+
+        <div className="relative w-48 h-48 md:w-64 md:h-64 mb-10 group">
+          <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full group-hover:bg-blue-500/40 transition-all"></div>
+          <img 
+            src="./Docs/Logo.png" 
+            alt="Logo"
+            className="relative w-full h-full object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+          />
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
+          <button 
+            onClick={() => router.push("/segregacion#seccion-material")}
+            className="flex-1 bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold uppercase tracking-wider hover:bg-emerald-500 hover:text-white transition-all flex items-center justify-center gap-2 group shadow-xl"
           >
-            <img 
-              src={item.image} 
-              alt={item.title}
-              className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/20 to-transparent flex items-end p-6">
-              <span className="text-sm font-bold uppercase tracking-[0.2em]">{item.title}</span>
+            Segregación por material
+            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </button>
+          <button 
+            onClick={() => handleNavigation("seccion-color")}
+            className="flex-1 bg-slate-800 border border-white/10 px-8 py-4 rounded-2xl font-bold uppercase tracking-wider hover:bg-blue-600 transition-all flex items-center justify-center gap-2 group shadow-xl"
+          >
+            Segregación por color
+            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+      </section>
+
+      {/* CATEGORÍAS */}
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <h2 className="text-xl font-semibold mb-8 flex items-center gap-2">
+          <span className="w-8 h-0.5 bg-emerald-500"></span>
+          Segregación: Explora y Aprende
+        </h2>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categories.map((item, index) => (
+            <div 
+              key={index}
+              onClick={() => handleNavigation(item.anchor)}
+              className="aspect-video rounded-4xl overflow-hidden border-2 border-white/20 cursor-pointer hover:border-blue-500 transition-all group relative shadow-2xl bg-slate-900"
+            >
+              <img 
+                src={item.image} 
+                alt={item.title}
+                className="w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent flex items-end p-8">
+                <span className="text-xs md:text-sm font-black uppercase tracking-[0.2em]">{item.title}</span>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }

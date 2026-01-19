@@ -1,4 +1,7 @@
+"use client";
+
 import { ArrowLeft, CheckCircle2, Lightbulb } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface MaterialInfo {
   id: string;
@@ -11,7 +14,8 @@ interface MaterialInfo {
   advice: string;
 }
 
-// 1. BEBIDAS Y ENVASES
+// --- CONSTANTES DE DATOS ---
+
 const bebidas: MaterialInfo[] = [
   {
     id: "pet-1",
@@ -75,7 +79,6 @@ const bebidas: MaterialInfo[] = [
   }
 ];
 
-// 2. EMPAQUES Y PAPELERÍA
 const empaques: MaterialInfo[] = [
   {
     id: "carton-1",
@@ -99,27 +102,16 @@ const empaques: MaterialInfo[] = [
   },
   {
     id: "snacks-1",
-    title: "Envoltorios de Snacks / Film",
+    title: "Envoltorios de comida",
     image: "./Segregacion/Snacks.png",
-    description: "Empaques flexibles multicapa y film estirable. Baja reciclabilidad.",
+    description: "Empaques flexibles multicapa de baja reciclabilidad.",
     steps: ["Vaciar totalmente", "Sacudir restos", "Doblar para reducir volumen", "No mezclar con plásticos rígidos"],
     destiny: "TACHO NEGRO",
     colorClass: "bg-slate-700 text-white",
     advice: "Mantenerlos separados preserva la calidad de los materiales recuperables puros."
-  },
-  {
-    id: "sopas-1",
-    title: "Sobres de Comida Instantánea",
-    image: "./Segregacion/Sopas.png",
-    description: "Empaques laminados multicapa con barrera térmica. No aprovechables.",
-    steps: ["Vaciar contenido", "Sacudir residuos sólidos", "Doblar para compactar", "Depositar sin mezclar"],
-    destiny: "TACHO NEGRO",
-    colorClass: "bg-slate-700 text-white",
-    advice: "Su estructura plástico-aluminio impide su valorización en procesos convencionales."
   }
 ];
 
-// 3. CIENCIA Y LABORATORIO
 const ciencia: MaterialInfo[] = [
   {
     id: "vidrio-roto",
@@ -129,41 +121,10 @@ const ciencia: MaterialInfo[] = [
     steps: ["Usar herramientas (no manos)", "Contenedor rígido rotulado", "Sellar correctamente", "Entrega especial"],
     destiny: "TACHO ROJO",
     colorClass: "bg-red-600 text-white",
-    advice: "Utilice contenedores certificados para reducir accidentes laborales y riesgos biológicos."
-  },
-  {
-    id: "epp-lab",
-    title: "Guantes y EPP",
-    image: "./Segregacion/Guantes.png",
-    description: "Guantes de nitrilo o látex usados. Pueden contener trazas de reactivos.",
-    steps: ["Retirar sin tocar exterior", "Doblar y envolver", "Bolsa biocontaminados", "Sellar y rotular"],
-    destiny: "TACHO ROJO",
-    colorClass: "bg-red-600 text-white",
-    advice: "Los EPP contaminados comprometen la bioseguridad; nunca intente su reutilización."
-  },
-  {
-    id: "quimicos-lab",
-    title: "Sustancias Químicas",
-    image: "./Segregacion/Reactivos.png",
-    description: "Reactivos líquidos o sólidos. Riesgo de corrosividad, toxicidad o inflamabilidad.",
-    steps: ["Envase original con etiqueta", "Verificar cierre hermético", "Separar por compatibilidad", "Entrega a gestión especial"],
-    destiny: "TACHO ROJO",
-    colorClass: "bg-red-600 text-white",
-    advice: "Mantener el reactivo en su envase original evita reacciones peligrosas por mezclas."
-  },
-  {
-    id: "biologicos-lab",
-    title: "Muestras Biológicas",
-    image: "./Segregacion/Muestras.png",
-    description: "Sedimentos, aguas o material procesado que requiere disposición controlada.",
-    steps: ["Contenedor hermético", "Rotular como biológico", "Depositar en rígido sellado", "Entrega a gestor"],
-    destiny: "TACHO ROJO",
-    colorClass: "bg-red-600 text-white",
-    advice: "Registrar origen y fecha fortalece la trazabilidad en instalaciones de alta sensibilidad."
+    advice: "Utilice contenedores certificados para reducir accidentes y riesgos biológicos."
   }
 ];
 
-// 4. MANTENIMIENTO Y TALLER
 const mantenimiento: MaterialInfo[] = [
   {
     id: "pilas-1",
@@ -173,41 +134,10 @@ const mantenimiento: MaterialInfo[] = [
     steps: ["Separar todas las usadas", "No abrir ni perforar", "Depositar en envase rígido", "Entregar al encargado"],
     destiny: "BOTELLA PLÁSTICA",
     colorClass: "bg-orange-500 text-white",
-    advice: "Deben mantenerse fuera de fuentes de calor para evitar fugas de electrolitos tóxicos."
-  },
-  {
-    id: "aceites-1",
-    title: "Aceites y Lubricantes",
-    image: "./Segregacion/Aceites.png",
-    description: "Residuos oleosos de generadores eléctricos. Altamente contaminantes.",
-    steps: ["Recipiente original hermético", "Rotular 'Aceite Usado'", "No mezclar con agua", "Bandejas de contención"],
-    destiny: "TACHO ROJO",
-    colorClass: "bg-red-600 text-white",
-    advice: "Su disposición en campo está prohibida; el retorno al centro de acopio es obligatorio."
-  },
-  {
-    id: "trapos-1",
-    title: "Trapos contaminados",
-    image: "./Segregacion/Trapos.png",
-    description: "Textiles con grasa, combustible o solventes. Inflamables y tóxicos.",
-    steps: ["Bolsa resistente", "No exprimir", "Contenedor cerrado", "Rotulación visible"],
-    destiny: "TACHO ROJO",
-    colorClass: "bg-red-600 text-white",
-    advice: "Se prohíbe su quema; deben ser trasladados fuera de la base por operador autorizado."
-  },
-  {
-    id: "chatarra-1",
-    title: "Piezas Metálicas",
-    image: "./Segregacion/Chatarra.png",
-    description: "Pernos, cables y repuestos. Aprovechables si están libres de químicos.",
-    steps: ["Separar piezas limpias", "Agrupar por metal", "Evitar bordes sueltos", "Compactar para transporte"],
-    destiny: "TACHO AZUL",
-    colorClass: "bg-blue-600 text-white",
-    advice: "Priorice la valorización mediante reciclaje asegurando que no tengan aceites."
+    advice: "Mantener fuera de fuentes de calor para evitar fugas de electrolitos tóxicos."
   }
 ];
 
-// 5. RESTOS DE COMIDA
 const comida: MaterialInfo[] = [
   {
     id: "vegetal-1",
@@ -217,31 +147,10 @@ const comida: MaterialInfo[] = [
     steps: ["Separar cáscaras y semillas", "Evitar exceso de humedad", "Depositar sin bolsas", "Tapar contenedor"],
     destiny: "TACHO MARRÓN",
     colorClass: "bg-amber-800 text-white",
-    advice: "Su manejo adecuado evita la atracción de fauna silvestre hacia la base científica."
-  },
-  {
-    id: "carnicos-1",
-    title: "Restos de Carne/Huesos",
-    image: "./Segregacion/Carnicos.png",
-    description: "Huesos y restos de origen animal. Manejo estricto para evitar patógenos.",
-    steps: ["Control de olores", "Contenedor sellado", "No mezclar con vegetales", "Gestión biosegura"],
-    destiny: "TACHO MARRÓN",
-    colorClass: "bg-amber-800 text-white",
-    advice: "En la Antártida, esto es vital para no introducir enfermedades en especies locales."
-  },
-  {
-    id: "cafe-1",
-    title: "Borra de Café y Té",
-    image: "./Segregacion/Cafe.png",
-    description: "Filtros de papel y saquitos de té. Altamente biodegradables.",
-    steps: ["Retirar exceso de líquido", "Saquitos completos", "No mezclar con plásticos", "Bolsa cerrada"],
-    destiny: "TACHO MARRÓN",
-    colorClass: "bg-amber-800 text-white",
-    advice: "Mantenerlos separados mejora la eficiencia del tratamiento biológico de residuos."
+    advice: "Su manejo evita la atracción de fauna silvestre hacia la base científica."
   }
 ];
 
-// 6. HIGIENE Y OTROS
 const higiene: MaterialInfo[] = [
   {
     id: "sanitarios-1",
@@ -252,272 +161,159 @@ const higiene: MaterialInfo[] = [
     destiny: "TACHO NEGRO",
     colorClass: "bg-slate-700 text-white",
     advice: "Pequeñas cantidades pueden inutilizar materiales reciclables por contaminación."
-  },
-  {
-    id: "limpieza-1",
-    title: "Mascarillas y Limpieza",
-    image: "./Segregacion/Limpieza.png",
-    description: "Mascarillas descartables y trapos de higiene personal.",
-    steps: ["Envolver tras uso", "Bolsa cerrada", "No tocar filtros", "Evitar dispersión"],
-    destiny: "TACHO NEGRO",
-    colorClass: "bg-slate-700 text-white",
-    advice: "El embolsado inmediato reduce riesgos sanitarios en ambientes cerrados."
-  },
-  {
-    id: "vajilla-1",
-    title: "Cerámicos o Vajilla Rota",
-    image: "./Segregacion/Loza.png",
-    description: "Tazas o platos de loza. Materiales inertes con bordes cortantes.",
-    steps: ["Recolectar con cuidado", "Envolver en cartón", "Bolsa resistente", "Sellar para transporte"],
-    destiny: "TACHO NEGRO",
-    colorClass: "bg-slate-700 text-white",
-    advice: "El embalaje previo disminuye el riesgo operacional para el personal de transporte."
   }
 ];
 
-export default function BebidasEnvasesPage() {
+// --- DATOS POR COLOR ---
+
+const colorNegro: MaterialInfo[] = [
+  {
+    id: "negro-gen",
+    title: "Residuos No Aprovechables",
+    image: "./Segregacion/Negro.png",
+    description: "Materiales que no pueden ser reciclados o valorizados.",
+    steps: ["Envolver restos comida procesada", "Depositar servilletas sucias", "Cerrar bolsa herméticamente"],
+    destiny: "TACHO NEGRO",
+    colorClass: "bg-slate-900 text-white border border-white/20",
+    advice: "Asegure el sellado para evitar olores en áreas comunes."
+  }
+];
+
+const colorMarron: MaterialInfo[] = [
+  {
+    id: "marron-gen",
+    title: "Residuos Orgánicos",
+    image: "./Segregacion/Organicos_color.png",
+    description: "Restos de alimentos crudos y desechos vegetales.",
+    steps: ["Eliminar exceso de líquidos", "No incluir bolsas de plástico", "Depositar restos de poda"],
+    destiny: "TACHO MARRÓN",
+    colorClass: "bg-amber-800 text-white",
+    advice: "La segregación pura permite el compostaje eficiente."
+  }
+];
+
+export default function ManualSegregacionPage() {
+  const router = useRouter();
+
+  const renderGrid = (data: MaterialInfo[]) => (
+    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {data.map((item) => (
+        <div key={item.id} className="group bg-slate-900/40 border border-white/25 rounded-[2.5rem] overflow-hidden hover:border-white/30 transition-all duration-300 flex flex-col shadow-xl">
+          <div className="w-full h-80 relative overflow-hidden bg-white/5">
+            <img 
+              src={item.image} 
+              alt={item.title} 
+              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" 
+            />
+            <div className={`absolute top-4 left-4 px-3 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-2xl ${item.colorClass}`}>
+              {item.destiny}
+            </div>
+          </div>
+          <div className="p-6 flex flex-col grow">
+            <h3 className="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors uppercase">{item.title}</h3>
+            <p className="text-slate-400 text-xs leading-relaxed mb-6 h-10 overflow-hidden line-clamp-2">{item.description}</p>
+            <div className="space-y-2 mb-6 grow">
+              {item.steps.map((step, idx) => (
+                <div key={idx} className="flex items-center gap-2 text-slate-300">
+                  <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />
+                  <span className="text-[13px] font-medium">{step}</span>
+                </div>
+              ))}
+            </div>
+            <div className="relative group/advice">
+              <div className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/5 p-3 rounded-2xl cursor-help transition-all">
+                <Lightbulb size={16} className="text-yellow-400" />
+                <span className="text-[11px] font-bold uppercase tracking-wider">Ver Consejo Técnico</span>
+              </div>
+              <div className="absolute bottom-full left-0 mb-2 w-full p-4 bg-slate-800 border border-emerald-500/30 rounded-2xl opacity-0 invisible group-hover/advice:opacity-100 group-hover/advice:visible transition-all z-10 shadow-2xl">
+                <p className="text-[11px] text-emerald-100 leading-snug">{item.advice}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+
   return (
-    <div className="min-h-screen bg-[#0a0f18] text-white p-6 md:p-12 font-sans">
-      <div className="max-w-7xl mx-auto mb-12">
-        <button className="flex items-center gap-2 text-slate-400 hover:text-white transition-all mb-6 group">
+    <div className="min-h-screen bg-[#0a0f18] text-white p-6 md:p-12 font-sans selection:bg-emerald-500/30">
+      
+      {/* HEADER PRINCIPAL */}
+      <div className="max-w-7xl mx-auto mb-16">
+        <button 
+          onClick={() => router.back()} 
+          className="flex items-center gap-2 text-slate-400 hover:text-white transition-all mb-8 group"
+        >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-          <span>Volver al inicio</span>
+          <span className="font-bold uppercase tracking-widest text-sm">Volver al inicio</span>
         </button>
-        
-        {/* TITULO 1 */}
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">1. Bebidas y Envases Alimentarios</h1>
-        <div className="w-20 h-1.5 bg-emerald-500 rounded-full mb-4"></div>
-        <p className="text-slate-400 max-w-3xl leading-relaxed mb-10">Siga los protocolos de limpieza y compactación técnica para asegurar el reciclaje.</p>
+        <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-4 text-emerald-500 uppercase">
+          Manual de Segregación ECAMP
+        </h1>
+        <p className="text-slate-400 max-w-2xl">
+          Guía técnica detallada para la gestión responsable de residuos en el Programa Nacional Antártico.
+        </p>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
-        {bebidas.map((item) => (
-          <div key={item.id} className="group bg-slate-900/40 border border-white/25 rounded-[2.5rem] overflow-hidden hover:border-white/30 transition-all duration-300 flex flex-col">
-            <div className="w-full h-90 md:h-96 relative overflow-hidden bg-white/5">
-              <img src={item.image} alt={item.title} className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700" />
-              <div className={`absolute top-4 left-4 px-3 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-2xl ${item.colorClass}`}>
-                {item.destiny}
-              </div>
-            </div>
-            <div className="p-6 flex flex-col grow">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">{item.title}</h3>
-              <p className="text-slate-400 text-xs leading-relaxed mb-6 h-10 overflow-hidden line-clamp-2">{item.description}</p>
-              <div className="space-y-2 mb-6 grow">
-                {item.steps.map((step, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-slate-300">
-                    <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />
-                    <span className="text-[13px] font-medium">{step}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="relative group/advice">
-                <div className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/5 p-3 rounded-2xl cursor-help transition-all">
-                  <Lightbulb size={16} className="text-yellow-400" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider">Ver Consejo Técnico</span>
-                </div>
-                <div className="absolute bottom-full left-0 mb-2 w-full p-4 bg-slate-800 border border-emerald-500/30 rounded-2xl opacity-0 invisible group-hover/advice:opacity-100 group-hover/advice:visible transition-all z-10 shadow-2xl">
-                  <p className="text-[11px] text-emerald-100 leading-snug">{item.advice}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+      {/* SECCIÓN I: POR MATERIAL */}
+      <div id="seccion-material" className="max-w-7xl mx-auto mb-14 p-8 bg-emerald-500/10 rounded-[3rem] border border-emerald-500/20 scroll-mt-24 shadow-2xl">
+        <h2 className="text-3xl font-black uppercase tracking-widest text-emerald-400">I. Segregación por Material</h2>
       </div>
 
-      {/* TITULO 2 */}
-      <div className="max-w-7xl mx-auto mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">2. Empaques y Papelería</h1>
-        <div className="w-20 h-1.5 bg-yellow-400 rounded-full mb-4"></div>
+      <div id="material-1" className="max-w-7xl mx-auto mb-8 ml-4 scroll-mt-24">
+        <h3 className="text-2xl font-bold uppercase tracking-tight">1. Bebidas y Envases Alimentarios</h3>
+        <div className="w-20 h-1.5 bg-emerald-500 mt-2 rounded-full"></div>
       </div>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
-        {empaques.map((item) => (
-          <div key={item.id} className="group bg-slate-900/40 border border-white/25 rounded-[2.5rem] overflow-hidden hover:border-white/30 transition-all duration-300 flex flex-col">
-            <div className="w-full h-90 md:h-96 relative overflow-hidden bg-white/5">
-              <img src={item.image} alt={item.title} className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700" />
-              <div className={`absolute top-4 left-4 px-3 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-2xl ${item.colorClass}`}>
-                {item.destiny}
-              </div>
-            </div>
-            <div className="p-6 flex flex-col grow">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">{item.title}</h3>
-              <p className="text-slate-400 text-xs leading-relaxed mb-6 h-10 overflow-hidden line-clamp-2">{item.description}</p>
-              <div className="space-y-2 mb-6 grow">
-                {item.steps.map((step, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-slate-300">
-                    <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />
-                    <span className="text-[13px] font-medium">{step}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="relative group/advice">
-                <div className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/5 p-3 rounded-2xl cursor-help transition-all">
-                  <Lightbulb size={16} className="text-yellow-400" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider">Ver Consejo Técnico</span>
-                </div>
-                <div className="absolute bottom-full left-0 mb-2 w-full p-4 bg-slate-800 border border-emerald-500/30 rounded-2xl opacity-0 invisible group-hover/advice:opacity-100 group-hover/advice:visible transition-all z-10 shadow-2xl">
-                  <p className="text-[11px] text-emerald-100 leading-snug">{item.advice}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+      {renderGrid(bebidas)}
+
+      <div id="material-2" className="max-w-7xl mx-auto mb-8 ml-4 scroll-mt-24">
+        <h3 className="text-2xl font-bold uppercase tracking-tight">2. Empaques y Papelería</h3>
+        <div className="w-20 h-1.5 bg-emerald-500 mt-2 rounded-full"></div>
+      </div>
+      {renderGrid(empaques)}
+
+      <div id="material-3" className="max-w-7xl mx-auto mb-8 ml-4 scroll-mt-24">
+        <h3 className="text-2xl font-bold uppercase tracking-tight">3. Ciencia y Laboratorio</h3>
+        <div className="w-20 h-1.5 bg-emerald-500 mt-2 rounded-full"></div>
+      </div>
+      {renderGrid(ciencia)}
+
+      <div id="material-4" className="max-w-7xl mx-auto mb-8 ml-4 scroll-mt-24">
+        <h3 className="text-2xl font-bold uppercase tracking-tight">4. Mantenimiento y Taller</h3>
+        <div className="w-20 h-1.5 bg-emerald-500 mt-2 rounded-full"></div>
+      </div>
+      {renderGrid(mantenimiento)}
+
+      <div id="material-5" className="max-w-7xl mx-auto mb-8 ml-4 scroll-mt-24">
+        <h3 className="text-2xl font-bold uppercase tracking-tight">5. Restos de Comida</h3>
+        <div className="w-20 h-1.5 bg-emerald-500 mt-2 rounded-full"></div>
+      </div>
+      {renderGrid(comida)}
+
+      <div id="material-6" className="max-w-7xl mx-auto mb-8 ml-4 scroll-mt-24">
+        <h3 className="text-2xl font-bold uppercase tracking-tight">6. Higiene y Otros</h3>
+        <div className="w-20 h-1.5 bg-emerald-500 mt-2 rounded-full"></div>
+      </div>
+      {renderGrid(higiene)}
+
+      {/* SECCIÓN II: POR COLOR */}
+      <div id="seccion-color" className="max-w-7xl mx-auto mb-14 mt-32 p-8 bg-blue-500/10 rounded-[3rem] border border-blue-500/20 scroll-mt-24">
+        <h2 className="text-3xl font-black uppercase tracking-widest text-blue-400">II. Segregación por Color</h2>
       </div>
 
-      {/* TITULO 3 */}
-      <div className="max-w-7xl mx-auto mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">3. Ciencia y Laboratorio</h1>
-        <div className="w-20 h-1.5 bg-red-600 rounded-full mb-4"></div>
+      <div className="max-w-7xl mx-auto mb-8 ml-4">
+        <h3 className="text-2xl font-bold text-slate-300 uppercase">1. Negro (No Aprovechables)</h3>
       </div>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
-        {ciencia.map((item) => (
-          <div key={item.id} className="group bg-slate-900/40 border border-white/25 rounded-[2.5rem] overflow-hidden hover:border-white/30 transition-all duration-300 flex flex-col">
-            <div className="w-full h-90 md:h-96 relative overflow-hidden bg-white/5">
-              <img src={item.image} alt={item.title} className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700" />
-              <div className={`absolute top-4 left-4 px-3 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-2xl ${item.colorClass}`}>
-                {item.destiny}
-              </div>
-            </div>
-            <div className="p-6 flex flex-col grow">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">{item.title}</h3>
-              <p className="text-slate-400 text-xs leading-relaxed mb-6 h-10 overflow-hidden line-clamp-2">{item.description}</p>
-              <div className="space-y-2 mb-6 grow">
-                {item.steps.map((step, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-slate-300">
-                    <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />
-                    <span className="text-[13px] font-medium">{step}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="relative group/advice">
-                <div className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/5 p-3 rounded-2xl cursor-help transition-all">
-                  <Lightbulb size={16} className="text-yellow-400" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider">Ver Consejo Técnico</span>
-                </div>
-                <div className="absolute bottom-full left-0 mb-2 w-full p-4 bg-slate-800 border border-emerald-500/30 rounded-2xl opacity-0 invisible group-hover/advice:opacity-100 group-hover/advice:visible transition-all z-10 shadow-2xl">
-                  <p className="text-[11px] text-emerald-100 leading-snug">{item.advice}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      {renderGrid(colorNegro)}
 
-      {/* TITULO 4 */}
-      <div className="max-w-7xl mx-auto mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">4. Mantenimiento y Taller</h1>
-        <div className="w-20 h-1.5 bg-orange-500 rounded-full mb-4"></div>
+      <div className="max-w-7xl mx-auto mb-8 ml-4">
+        <h3 className="text-2xl font-bold text-amber-600 uppercase">2. Orgánicos (Marrón)</h3>
       </div>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
-        {mantenimiento.map((item) => (
-          <div key={item.id} className="group bg-slate-900/40 border border-white/25 rounded-[2.5rem] overflow-hidden hover:border-white/30 transition-all duration-300 flex flex-col">
-            <div className="w-full h-90 md:h-96 relative overflow-hidden bg-white/5">
-              <img src={item.image} alt={item.title} className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700" />
-              <div className={`absolute top-4 left-4 px-3 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-2xl ${item.colorClass}`}>
-                {item.destiny}
-              </div>
-            </div>
-            <div className="p-6 flex flex-col grow">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">{item.title}</h3>
-              <p className="text-slate-400 text-xs leading-relaxed mb-6 h-10 overflow-hidden line-clamp-2">{item.description}</p>
-              <div className="space-y-2 mb-6 grow">
-                {item.steps.map((step, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-slate-300">
-                    <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />
-                    <span className="text-[13px] font-medium">{step}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="relative group/advice">
-                <div className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/5 p-3 rounded-2xl cursor-help transition-all">
-                  <Lightbulb size={16} className="text-yellow-400" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider">Ver Consejo Técnico</span>
-                </div>
-                <div className="absolute bottom-full left-0 mb-2 w-full p-4 bg-slate-800 border border-emerald-500/30 rounded-2xl opacity-0 invisible group-hover/advice:opacity-100 group-hover/advice:visible transition-all z-10 shadow-2xl">
-                  <p className="text-[11px] text-emerald-100 leading-snug">{item.advice}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      {renderGrid(colorMarron)}
 
-      {/* TITULO 5 */}
-      <div className="max-w-7xl mx-auto mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">5. Restos de Comida (Orgánicos)</h1>
-        <div className="w-20 h-1.5 bg-amber-800 rounded-full mb-4"></div>
-      </div>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
-        {comida.map((item) => (
-          <div key={item.id} className="group bg-slate-900/40 border border-white/25 rounded-[2.5rem] overflow-hidden hover:border-white/30 transition-all duration-300 flex flex-col">
-            <div className="w-full h-90 md:h-96 relative overflow-hidden bg-white/5">
-              <img src={item.image} alt={item.title} className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700" />
-              <div className={`absolute top-4 left-4 px-3 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-2xl ${item.colorClass}`}>
-                {item.destiny}
-              </div>
-            </div>
-            <div className="p-6 flex flex-col grow">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">{item.title}</h3>
-              <p className="text-slate-400 text-xs leading-relaxed mb-6 h-10 overflow-hidden line-clamp-2">{item.description}</p>
-              <div className="space-y-2 mb-6 grow">
-                {item.steps.map((step, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-slate-300">
-                    <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />
-                    <span className="text-[13px] font-medium">{step}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="relative group/advice">
-                <div className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/5 p-3 rounded-2xl cursor-help transition-all">
-                  <Lightbulb size={16} className="text-yellow-400" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider">Ver Consejo Técnico</span>
-                </div>
-                <div className="absolute bottom-full left-0 mb-2 w-full p-4 bg-slate-800 border border-emerald-500/30 rounded-2xl opacity-0 invisible group-hover/advice:opacity-100 group-hover/advice:visible transition-all z-10 shadow-2xl">
-                  <p className="text-[11px] text-emerald-100 leading-snug">{item.advice}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* TITULO 6 */}
-      <div className="max-w-7xl mx-auto mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">6. Higiene y Otros (No Aprovechables)</h1>
-        <div className="w-20 h-1.5 bg-slate-700 rounded-full mb-4"></div>
-      </div>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {higiene.map((item) => (
-          <div key={item.id} className="group bg-slate-900/40 border border-white/25 rounded-[2.5rem] overflow-hidden hover:border-white/30 transition-all duration-300 flex flex-col">
-            <div className="w-full h-90 md:h-96 relative overflow-hidden bg-white/5">
-              <img src={item.image} alt={item.title} className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700" />
-              <div className={`absolute top-4 left-4 px-3 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-2xl ${item.colorClass}`}>
-                {item.destiny}
-              </div>
-            </div>
-            <div className="p-6 flex flex-col grow">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">{item.title}</h3>
-              <p className="text-slate-400 text-xs leading-relaxed mb-6 h-10 overflow-hidden line-clamp-2">{item.description}</p>
-              <div className="space-y-2 mb-6 grow">
-                {item.steps.map((step, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-slate-300">
-                    <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />
-                    <span className="text-[13px] font-medium">{step}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="relative group/advice">
-                <div className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/5 p-3 rounded-2xl cursor-help transition-all">
-                  <Lightbulb size={16} className="text-yellow-400" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider">Ver Consejo Técnico</span>
-                </div>
-                <div className="absolute bottom-full left-0 mb-2 w-full p-4 bg-slate-800 border border-emerald-500/30 rounded-2xl opacity-0 invisible group-hover/advice:opacity-100 group-hover/advice:visible transition-all z-10 shadow-2xl">
-                  <p className="text-[11px] text-emerald-100 leading-snug">{item.advice}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <footer className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 text-center text-slate-500 text-sm">
+        <p>© 2026 Programa Nacional Antártico - Gestión Ambiental ECAMP</p>
+      </footer>
     </div>
   );
 }

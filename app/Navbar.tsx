@@ -43,7 +43,7 @@ export default function Navbar() {
       {/* Menú Desplegable*/}
       <div className={`md:hidden absolute top-20 left-4 right-4 bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 transition-all duration-300 ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
         <div className="flex flex-col gap-6 items-center">
-            <Link href="/" onClick={() => setIsOpen(false)}>Segregación</Link>
+            <Link href="/segregacion" onClick={() => setIsOpen(false)}>Segregación</Link>
             <Link href="/biblioteca" onClick={() => setIsOpen(false)}>Biblioteca</Link>
             <Link href="/datos-curiosos" onClick={() => setIsOpen(false)}>Datos Curiosos</Link>
         </div>
