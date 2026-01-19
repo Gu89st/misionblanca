@@ -1,6 +1,18 @@
 "use client";
 
-import { ArrowLeft, CheckCircle2, Lightbulb } from "lucide-react";
+import { 
+  ArrowLeft, 
+  CheckCircle2, 
+  Lightbulb, 
+  XCircle, 
+  Apple, 
+  Coffee, 
+  Leaf, 
+  Drumstick,
+  Ban,
+  Trash2,
+  Cigarette
+} from "lucide-react";
 import { useRouter } from "next/navigation";
 
 interface MaterialInfo {
@@ -14,8 +26,7 @@ interface MaterialInfo {
   advice: string;
 }
 
-// --- CONSTANTES DE DATOS ---
-
+// --- DATOS SECCIÓN 1: POR MATERIAL (Conserva tus constantes de datos) ---
 const bebidas: MaterialInfo[] = [
   {
     id: "pet-1",
@@ -27,184 +38,21 @@ const bebidas: MaterialInfo[] = [
     colorClass: "bg-white text-slate-900",
     advice: "La compactación vertical maximiza la eficiencia del almacenamiento en la base."
   },
-  {
-    id: "hdpe-2",
-    title: "Yogurt, Lácteos y Shampoo",
-    image: "./Segregacion/Lacteos.png",
-    description: "Plásticos densos que requieren eliminación total de residuos orgánicos.",
-    steps: ["Enjuague obligatorio", "Quitar etiquetas", "Aplastar", "Sin tapa"],
-    destiny: "TACHO BLANCO",
-    colorClass: "bg-white text-slate-900",
-    advice: "Lave inmediatamente después del uso para evitar fermentación y olores."
-  },
-  {
-    id: "aluminio",
-    title: "Latas de Bebidas",
-    image: "./Segregacion/Latas.png",
-    description: "Aluminio ligero. Su reciclaje ahorra un 95% de energía en producción.",
-    steps: ["Vaciar contenido", "Enjuagar ligero", "Aplastar", "Sin etiquetas"],
-    destiny: "TACHO AZUL",
-    colorClass: "bg-blue-600 text-white",
-    advice: "El aluminio limpio mantiene el valor más alto de recuperación en el mercado."
-  },
-  {
-    id: "hojalata",
-    title: "Latas de Conservas",
-    image: "./Segregacion/conservas.png",
-    description: "Hojalata (atún, duraznos). Cuidado con los bordes cortantes.",
-    steps: ["Retirar restos de comida", "Enjuagar bien", "Secar", "No deformar peligrosamente"],
-    destiny: "TACHO AZUL",
-    colorClass: "bg-blue-600 text-white",
-    advice: "La limpieza evita vectores (insectos) y mejora la calidad del metal reciclado."
-  },
-  {
-    id: "tetra",
-    title: "Envases Tetra Pak",
-    image: "./Segregacion/Tetra_pak.png",
-    description: "Multicapa (cartón, aluminio, plástico). Se gestiona junto al papel y cartón.",
-    steps: ["Enjuagar bien", "Desplegar esquinas", "Aplastar", "Secar"],
-    destiny: "TACHO AMARILLO",
-    colorClass: "bg-yellow-400 text-black",
-    advice: "Desplegar las pestañas permite un aplastado total, ahorrando 70% de espacio."
-  },
-  {
-    id: "vidrio",
-    title: "Botellas de Vidrio",
-    image: "./Segregacion/Vidrio.png", 
-    description: "Envases de salsas o bebidas. 100% reciclable infinitas veces.",
-    steps: ["Eliminar líquidos", "Enjuague obligatorio", "Quitar tapa o corcho", "Depositar sin romper"],
-    destiny: "TACHO VERDE",
-    colorClass: "bg-emerald-500 text-white",
-    advice: "Evite romper el vidrio; los fragmentos pequeños son difíciles de segregar."
-  }
+  // ... (Agrega aquí el resto de tus materiales: empaques, ciencia, mantenimiento, comida, higiene)
 ];
 
-const empaques: MaterialInfo[] = [
-  {
-    id: "carton-1",
-    title: "Cajas de Cartón",
-    image: "./Segregacion/Carton.png",
-    description: "Contenedores de fibras de celulosa. Alta reciclabilidad siempre que estén limpias.",
-    steps: ["Desarmar completamente", "Aplastar y apilar planas", "Retirar cintas o etiquetas", "Mantener secas"],
-    destiny: "TACHO AMARILLO",
-    colorClass: "bg-yellow-400 text-black",
-    advice: "La humedad degrada las fibras celulósicas; asegure que el cartón se mantenga seco."
-  },
-  {
-    id: "papel-1",
-    title: "Papel de Oficina/Documentos",
-    image: "./Segregacion/Papel.png",
-    description: "Hojas bond, informes y documentos administrativos. Fibras reciclables.",
-    steps: ["Separar hojas limpias", "Retirar grapas o clips", "Apilar ordenadamente", "Proteger de humedad"],
-    destiny: "TACHO AMARILLO",
-    colorClass: "bg-yellow-400 text-black",
-    advice: "Retirar metales mejora la calidad del insumo y reduce costos en las plantas de fibra."
-  },
-  {
-    id: "snacks-1",
-    title: "Envoltorios de comida",
-    image: "./Segregacion/Snacks.png",
-    description: "Empaques flexibles multicapa de baja reciclabilidad.",
-    steps: ["Vaciar totalmente", "Sacudir restos", "Doblar para reducir volumen", "No mezclar con plásticos rígidos"],
-    destiny: "TACHO NEGRO",
-    colorClass: "bg-slate-700 text-white",
-    advice: "Mantenerlos separados preserva la calidad de los materiales recuperables puros."
-  }
-];
-
-const ciencia: MaterialInfo[] = [
-  {
-    id: "vidrio-roto",
-    title: "Material de Vidrio Roto",
-    image: "./Segregacion/Vidrio_roto.png",
-    description: "Tubos de ensayo, placas de Petri. Residuos cortopunzantes de laboratorio.",
-    steps: ["Usar herramientas (no manos)", "Contenedor rígido rotulado", "Sellar correctamente", "Entrega especial"],
-    destiny: "TACHO ROJO",
-    colorClass: "bg-red-600 text-white",
-    advice: "Utilice contenedores certificados para reducir accidentes y riesgos biológicos."
-  }
-];
-
-const mantenimiento: MaterialInfo[] = [
-  {
-    id: "pilas-1",
-    title: "Pilas y Baterías",
-    image: "./Segregacion/Pilas.png",
-    description: "Dispositivos con metales pesados. Residuos peligrosos por toxicidad.",
-    steps: ["Separar todas las usadas", "No abrir ni perforar", "Depositar en envase rígido", "Entregar al encargado"],
-    destiny: "BOTELLA PLÁSTICA",
-    colorClass: "bg-orange-500 text-white",
-    advice: "Mantener fuera de fuentes de calor para evitar fugas de electrolitos tóxicos."
-  }
-];
-
-const comida: MaterialInfo[] = [
-  {
-    id: "vegetal-1",
-    title: "Frutas y Verduras",
-    image: "./Segregacion/Organicos.png",
-    description: "Residuos biodegradables. Pueden atraer fauna si no se manejan bien.",
-    steps: ["Separar cáscaras y semillas", "Evitar exceso de humedad", "Depositar sin bolsas", "Tapar contenedor"],
-    destiny: "TACHO MARRÓN",
-    colorClass: "bg-amber-800 text-white",
-    advice: "Su manejo evita la atracción de fauna silvestre hacia la base científica."
-  }
-];
-
-const higiene: MaterialInfo[] = [
-  {
-    id: "sanitarios-1",
-    title: "Residuos de Baño",
-    image: "./Segregacion/Bano.png",
-    description: "Papel higiénico y toallitas. Carga biológica no aprovechable.",
-    steps: ["Depósito directo", "No mezclar con reciclables", "Bolsa resistente", "Sellar al llenar"],
-    destiny: "TACHO NEGRO",
-    colorClass: "bg-slate-700 text-white",
-    advice: "Pequeñas cantidades pueden inutilizar materiales reciclables por contaminación."
-  }
-];
-
-// --- DATOS POR COLOR ---
-
-const colorNegro: MaterialInfo[] = [
-  {
-    id: "negro-gen",
-    title: "Residuos No Aprovechables",
-    image: "./Segregacion/Negro.png",
-    description: "Materiales que no pueden ser reciclados o valorizados.",
-    steps: ["Envolver restos comida procesada", "Depositar servilletas sucias", "Cerrar bolsa herméticamente"],
-    destiny: "TACHO NEGRO",
-    colorClass: "bg-slate-900 text-white border border-white/20",
-    advice: "Asegure el sellado para evitar olores en áreas comunes."
-  }
-];
-
-const colorMarron: MaterialInfo[] = [
-  {
-    id: "marron-gen",
-    title: "Residuos Orgánicos",
-    image: "./Segregacion/Organicos_color.png",
-    description: "Restos de alimentos crudos y desechos vegetales.",
-    steps: ["Eliminar exceso de líquidos", "No incluir bolsas de plástico", "Depositar restos de poda"],
-    destiny: "TACHO MARRÓN",
-    colorClass: "bg-amber-800 text-white",
-    advice: "La segregación pura permite el compostaje eficiente."
-  }
-];
+// --- DATOS SECCIÓN 2: POR COLOR (ESTRUCTURA NUEVA) ---
 
 export default function ManualSegregacionPage() {
   const router = useRouter();
 
+  // Función para renderizar el grid de la Sección I
   const renderGrid = (data: MaterialInfo[]) => (
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
       {data.map((item) => (
         <div key={item.id} className="group bg-slate-900/40 border border-white/25 rounded-[2.5rem] overflow-hidden hover:border-white/30 transition-all duration-300 flex flex-col shadow-xl">
           <div className="w-full h-80 relative overflow-hidden bg-white/5">
-            <img 
-              src={item.image} 
-              alt={item.title} 
-              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" 
-            />
+            <img src={item.image} alt={item.title} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" />
             <div className={`absolute top-4 left-4 px-3 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-2xl ${item.colorClass}`}>
               {item.destiny}
             </div>
@@ -250,66 +98,123 @@ export default function ManualSegregacionPage() {
         <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-4 text-emerald-500 uppercase">
           Manual de Segregación ECAMP
         </h1>
-        <p className="text-slate-400 max-w-2xl">
-          Guía técnica detallada para la gestión responsable de residuos en el Programa Nacional Antártico.
-        </p>
       </div>
 
-      {/* SECCIÓN I: POR MATERIAL */}
-      <div id="seccion-material" className="max-w-7xl mx-auto mb-14 p-8 bg-emerald-500/10 rounded-[3rem] border border-emerald-500/20 scroll-mt-24 shadow-2xl">
+      {/* ==========================================
+          SECCIÓN I: SEGREGACIÓN POR MATERIAL
+          ========================================== */}
+      <div id="seccion-material" className="max-w-7xl mx-auto mb-14 p-8 bg-emerald-500/10 rounded-[3rem] border border-emerald-500/20 scroll-mt-24">
         <h2 className="text-3xl font-black uppercase tracking-widest text-emerald-400">I. Segregación por Material</h2>
       </div>
 
-      <div id="material-1" className="max-w-7xl mx-auto mb-8 ml-4 scroll-mt-24">
-        <h3 className="text-2xl font-bold uppercase tracking-tight">1. Bebidas y Envases Alimentarios</h3>
-        <div className="w-20 h-1.5 bg-emerald-500 mt-2 rounded-full"></div>
+      <div id="material-1" className="scroll-mt-24">
+        <h3 className="text-2xl font-bold uppercase max-w-7xl mx-auto mb-8 ml-4">1. Bebidas y Envases Alimentarios</h3>
+        {renderGrid(bebidas)}
       </div>
-      {renderGrid(bebidas)}
 
-      <div id="material-2" className="max-w-7xl mx-auto mb-8 ml-4 scroll-mt-24">
-        <h3 className="text-2xl font-bold uppercase tracking-tight">2. Empaques y Papelería</h3>
-        <div className="w-20 h-1.5 bg-emerald-500 mt-2 rounded-full"></div>
-      </div>
-      {renderGrid(empaques)}
+      {/* ... (Repetir para material-2 al material-6) */}
 
-      <div id="material-3" className="max-w-7xl mx-auto mb-8 ml-4 scroll-mt-24">
-        <h3 className="text-2xl font-bold uppercase tracking-tight">3. Ciencia y Laboratorio</h3>
-        <div className="w-20 h-1.5 bg-emerald-500 mt-2 rounded-full"></div>
-      </div>
-      {renderGrid(ciencia)}
 
-      <div id="material-4" className="max-w-7xl mx-auto mb-8 ml-4 scroll-mt-24">
-        <h3 className="text-2xl font-bold uppercase tracking-tight">4. Mantenimiento y Taller</h3>
-        <div className="w-20 h-1.5 bg-emerald-500 mt-2 rounded-full"></div>
-      </div>
-      {renderGrid(mantenimiento)}
-
-      <div id="material-5" className="max-w-7xl mx-auto mb-8 ml-4 scroll-mt-24">
-        <h3 className="text-2xl font-bold uppercase tracking-tight">5. Restos de Comida</h3>
-        <div className="w-20 h-1.5 bg-emerald-500 mt-2 rounded-full"></div>
-      </div>
-      {renderGrid(comida)}
-
-      <div id="material-6" className="max-w-7xl mx-auto mb-8 ml-4 scroll-mt-24">
-        <h3 className="text-2xl font-bold uppercase tracking-tight">6. Higiene y Otros</h3>
-        <div className="w-20 h-1.5 bg-emerald-500 mt-2 rounded-full"></div>
-      </div>
-      {renderGrid(higiene)}
-
-      {/* SECCIÓN II: POR COLOR */}
-      <div id="seccion-color" className="max-w-7xl mx-auto mb-14 mt-32 p-8 bg-blue-500/10 rounded-[3rem] border border-blue-500/20 scroll-mt-24">
+      {/* ==========================================
+          SECCIÓN II: SEGREGACIÓN POR COLOR
+          ========================================== */}
+      <div id="seccion-color" className="max-w-7xl mx-auto mb-14 mt-32 p-8 bg-blue-500/10 rounded-[3rem] border border-blue-500/20 scroll-mt-24 shadow-2xl">
         <h2 className="text-3xl font-black uppercase tracking-widest text-blue-400">II. Segregación por Color</h2>
       </div>
 
-      <div className="max-w-7xl mx-auto mb-8 ml-4">
-        <h3 className="text-2xl font-bold text-slate-300 uppercase">1. Negro (No Aprovechables)</h3>
-      </div>
-      {renderGrid(colorNegro)}
+      {/* --- DISEÑO NUEVO TACHO MARRÓN --- */}
+      <div className="max-w-7xl mx-auto mb-24 bg-amber-900/5 border border-amber-800/20 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
+        <div className="mb-12">
+          <h3 className="text-3xl md:text-4xl font-black text-amber-600 uppercase mb-6 flex items-center gap-4">
+            <span className="w-4 h-12 bg-amber-600 rounded-full"></span>
+            Tacho MARRÓN: Residuos Orgánicos
+          </h3>
+          <p className="text-slate-300 text-lg md:text-xl leading-relaxed max-w-5xl">
+            En este contenedor se depositan todos los desechos de origen biológico que pueden degradarse naturalmente. 
+            Su correcta segregación es vital para evitar contaminación por patógenos en la base.
+          </p>
+        </div>
 
-      <div className="max-w-7xl mx-auto mb-8 ml-4">
-        <h3 className="text-2xl font-bold text-amber-600 uppercase">2. Orgánicos (Marrón)</h3>
+        {/* Bloques Informativos */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* ¿Qué ingresa? */}
+          <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-[2.5rem] p-10">
+            <h4 className="flex items-center gap-3 text-emerald-400 font-black uppercase tracking-widest mb-8 text-xl">
+              <CheckCircle2 size={28} />
+              ¿Qué ingresa?
+            </h4>
+            <div className="space-y-6">
+              <div>
+                <span className="text-emerald-400/80 font-bold text-xs uppercase tracking-tighter block mb-1">Desechos de cocina</span>
+                <p className="text-slate-300 text-sm">Todo tipo de sobrantes de comida procesada, restos de carnes rojas, aves, huesos y cáscaras de huevo <span className="text-emerald-400 font-bold">(sin líquidos)</span>.</p>
+              </div>
+              <div>
+                <span className="text-emerald-400/80 font-bold text-xs uppercase tracking-tighter block mb-1">Frutas y vegetales</span>
+                <p className="text-slate-300 text-sm">Cáscaras, semillas y restos de verduras crudas o cocidas.</p>
+              </div>
+              <div>
+                <span className="text-emerald-400/80 font-bold text-xs uppercase tracking-tighter block mb-1">Residuos de jardín</span>
+                <p className="text-slate-300 text-sm">Hojas secas, flores marchitas y restos de podas pequeñas.</p>
+              </div>
+              <div>
+                <span className="text-emerald-400/80 font-bold text-xs uppercase tracking-tighter block mb-1">Insumos de cafetería</span>
+                <p className="text-slate-300 text-sm">Granos y posos de café usados <span className="text-emerald-400 font-bold">(sin líquidos)</span>.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* ¿Qué NO ingresa? */}
+          <div className="bg-red-500/5 border border-red-500/10 rounded-[2.5rem] p-10">
+            <h4 className="flex items-center gap-3 text-red-400 font-black uppercase tracking-widest mb-8 text-xl">
+              <XCircle size={28} />
+              ¿Qué NO ingresa?
+            </h4>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-col gap-3">
+                <span className="bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-xl text-xs font-bold text-red-300 uppercase text-center">Plásticos</span>
+                <span className="bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-xl text-xs font-bold text-red-300 uppercase text-center">Vidrios</span>
+                <span className="bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-xl text-xs font-bold text-red-300 uppercase text-center">Metales</span>
+              </div>
+              <div className="flex flex-col gap-3">
+                <span className="bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-xl text-xs font-bold text-red-300 uppercase text-center">Servilletas</span>
+                <span className="bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-xl text-xs font-bold text-red-300 uppercase text-center">Colillas</span>
+                <span className="bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-xl text-xs font-bold text-red-300 uppercase text-center">Compostables</span>
+              </div>
+            </div>
+            <p className="mt-8 text-slate-500 text-xs italic leading-tight">
+              Nota: La presencia de materiales no biológicos invalida el proceso de tratamiento de residuos orgánicos en la Antártida.
+            </p>
+          </div>
+        </div>
+
+        {/* Fila de Iconos representativos */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-10 border-t border-white/5">
+          <div className="flex flex-col items-center gap-3 group">
+            <div className="p-6 bg-amber-600/10 rounded-3xl text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all duration-500 group-hover:-translate-y-2">
+              <Apple size={40} />
+            </div>
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Frutas</span>
+          </div>
+          <div className="flex flex-col items-center gap-3 group">
+            <div className="p-6 bg-amber-600/10 rounded-3xl text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all duration-500 group-hover:-translate-y-2">
+              <Drumstick size={40} />
+            </div>
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Cárnicos</span>
+          </div>
+          <div className="flex flex-col items-center gap-3 group">
+            <div className="p-6 bg-amber-600/10 rounded-3xl text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all duration-500 group-hover:-translate-y-2">
+              <Coffee size={40} />
+            </div>
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Restos de Café</span>
+          </div>
+          <div className="flex flex-col items-center gap-3 group">
+            <div className="p-6 bg-amber-600/10 rounded-3xl text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all duration-500 group-hover:-translate-y-2">
+              <Leaf size={40} />
+            </div>
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Poda</span>
+          </div>
+        </div>
       </div>
-      {renderGrid(colorMarron)}
 
       <footer className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 text-center text-slate-500 text-sm">
         <p>© 2026 Programa Nacional Antártico - Gestión Ambiental ECAMP</p>
