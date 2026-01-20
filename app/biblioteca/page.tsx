@@ -3,8 +3,8 @@ import React from 'react';
 const documentos = [
   {
     titulo: "Taller Antartico",
-    imagen: "/docs/Base.png", // Quité el punto inicial
-    archivo: "/TALLER_ANTAR_XXXII.PDF", // Asegúrate que la extensión real sea .PDF mayúscula
+    imagen: "./docs/Base.png", // Quité el punto inicial
+    archivo: "/TALLER_ANTAR_XXXII.pdf", // Asegúrate que la extensión real sea .PDF mayúscula
   },
   {
     titulo: "Flora y Fauna de la base antártica",
@@ -13,7 +13,7 @@ const documentos = [
   },
   {
     titulo: "Protocolo de Madrid",
-    imagen: "/docs/Protocolo_de_madrid.png", // Quité el punto inicial
+    imagen: "./docs/Protocolo_de_madrid.png", // Quité el punto inicial
     archivo: "/Protocolo_de_madrid.pdf", // Quité el punto inicial
   },
   {
@@ -28,7 +28,7 @@ const documentos = [
   },
   {
     titulo: "Microplásticos en el aire antártico: hallazgos actuales.",
-    imagen: "/docs/AntartidaA.jpg", // Quité el punto inicial
+    imagen: "./docs/AntartidaA.jpg", // Quité el punto inicial
     archivo: "/microplasticsair.pdf", // Quité el punto inicial
   },
   {
