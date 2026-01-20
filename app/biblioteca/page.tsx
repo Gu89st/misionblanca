@@ -3,39 +3,38 @@ import React from 'react';
 const documentos = [
   {
     titulo: "Taller Antartico",
-    imagen: "./docs/Base.png",
-    archivo: "./docs/TALLER_ANTAR_XXXII.PDF",
+    imagen: "/docs/Base.png", // Quité el punto inicial
+    archivo: "/docs/TALLER_ANTAR_XXXII.PDF", // Asegúrate que la extensión real sea .PDF mayúscula
   },
   {
     titulo: "Flora y Fauna de la base antártica",
     imagen: "https://images.unsplash.com/photo-1517783999520-f068d7431a60?auto=format&fit=crop&q=80&w=800",
-    archivo: "./docs/Flora_y_fauna_de_la_base_antartica.pdf",
+    archivo: "/docs/Flora_y_fauna_de_la_base_antartica.pdf", // Quité el punto inicial
   },
   {
     titulo: "Protocolo de Madrid",
-    imagen: "./docs/Protocolo_de_madrid.png",
-    archivo: "./docs/Protocolo_de_madrid.pdf",
+    imagen: "/docs/Protocolo_de_madrid.png", // Quité el punto inicial
+    archivo: "/docs/Protocolo_de_madrid.pdf", // Quité el punto inicial
   },
   {
     titulo: "Treaty Original",
-    imagen: "./Docs/Tratado_Antartico.jpeg",
-    archivo: "/docs/treaty_original.pdf",
+    imagen: "/Docs/Tratado_Antartico.jpeg", // Quité el punto. Revisa si la carpeta es 'Docs' o 'docs'
+    archivo: "/docs/treaty_original.pdf", 
   },
-  // NUEVOS DOCUMENTOS AÑADIDOS
   {
     titulo: "Legado de microplásticos en la nieve antártica",
     imagen: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800",
-    archivo: "./docs/MicroplasticsinAntarctica.pdf",
+    archivo: "/docs/MicroplasticsinAntarctica.pdf", // Quité el punto inicial
   },
   {
     titulo: "Microplásticos en el aire antártico: hallazgos actuales.",
-    imagen: "./docs/AntartidaA.jpg",
-    archivo: "./docs/microplasticsair.pdf",
+    imagen: "/docs/AntartidaA.jpg", // Quité el punto inicial
+    archivo: "/docs/microplasticsair.pdf", // Quité el punto inicial
   },
   {
     titulo: "Microfibras textiles en la fauna del mar de Ross.",
     imagen: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=800",
-    archivo: "./docs/Microfibrastextiles.pdf",
+    archivo: "/docs/Microfibrastextiles.pdf", // Quité el punto inicial
   }
 ];
 
