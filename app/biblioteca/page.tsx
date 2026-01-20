@@ -3,7 +3,7 @@ import React from 'react';
 const documentos = [
   {
     titulo: "Taller Antartico",
-    imagen: "./docs/Base.jpeg",
+    imagen: "./docs/Base.png",
     archivo: "./docs/TALLER_ANTAR_XXXII.PDF",
   },
   {
@@ -13,7 +13,7 @@ const documentos = [
   },
   {
     titulo: "Protocolo de Madrid",
-    imagen: "./docs/Protocolo_de_madrid.png.jpeg",
+    imagen: "./docs/Protocolo_de_madrid.png",
     archivo: "./docs/Protocolo_de_madrid.pdf",
   },
   {
