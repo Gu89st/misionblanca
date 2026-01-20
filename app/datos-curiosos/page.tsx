@@ -30,12 +30,14 @@ const datos: DatoCurioso[] = [
 
 const videos: VideoAntartico[] = [
   { id: 1, titulo: "Video Principal: Expedición Antártida", url: "https://www.youtube.com/embed/g1eh5W0CQC8" },
-  { id: 2, titulo: "Antártida: Un continente para la ciencia", url: "https://www.youtube.com/embed/wlqCkeeVzXg" },
+  { id: 2, titulo: "Antártida: Un continente para la ciencia", url: "https://www.youtube.com/watch?v=wlqCkeeVzXg" },
   { id: 3, titulo: "Lo que esconde la Antártida | Importancia", url: "https://www.youtube.com/embed/VukULE056Mc" },
   { id: 4, titulo: "Residuos plásticos en la Antártida", url: "https://www.youtube.com/embed/zftEPo2kJ-I" },
   { id: 5, titulo: "Antarctica: End of the Earth | ITV News", url: "https://www.youtube.com/embed/2KbPRSnJfhQ" },
   { id: 6, titulo: "Our Planet | Frozen Worlds | Netflix", url: "https://www.youtube.com/embed/cTQ3Ko9ZKg8" },
-  { id: 7, titulo: "Antártida: Cuentos del fin del mundo", url: "https://www.youtube.com/embed/KPehrNUREIU" }
+  { id: 7, titulo: "Antártida: Cuentos del fin del mundo", url: "https://www.youtube.com/embed/KPehrNUREIU" },
+  { id: 8, titulo: "Cambio Climático", url: "https://www.youtube.com/embed/z4vHLa36Wsg" },
+  { id: 9, titulo: "Lemon (Plásticos)", url: "https://www.youtube.com/embed/c8c0sYQ87m8" }
 ];
 
 export default function DatosCuriososPage() {
@@ -100,7 +102,12 @@ export default function DatosCuriososPage() {
           ))}
         </div>
       </section>
-
+           <footer className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 text-center text-slate-500 text-sm">
+        <p>© 2026 Programa Nacional Antártico - Gestión Ambiental ECAMP</p>
+        <p className="text-xs text-slate-600">
+          Diseño y Desarrollo: <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold">Alberto Sarapura G.</a>
+        </p>
+      </footer>
     </div>
   );
 }

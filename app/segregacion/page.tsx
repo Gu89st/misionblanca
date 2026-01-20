@@ -31,7 +31,7 @@ const bebidas: MaterialInfo[] = [
   { id: "aluminio", title: "Latas de Bebidas", image: "./Segregacion/Latas.png", description: "Aluminio ligero. Su reciclaje ahorra un 95% de energía en producción.", steps: ["Vaciar contenido", "Enjuagar ligero", "Aplastar", "Sin etiquetas"], destiny: "TACHO AZUL", colorClass: "bg-blue-600 text-white", advice: "El aluminio limpio mantiene el valor más alto de recuperación en el mercado." },
   { id: "hojalata", title: "Latas de Conservas", image: "./Segregacion/conservas.png", description: "Hojalata (atún, duraznos). Cuidado con los bordes cortantes.", steps: ["Retirar restos de comida", "Enjuagar bien", "Secar", "No deformar peligrosamente"], destiny: "TACHO AZUL", colorClass: "bg-blue-600 text-white", advice: "La limpieza evita vectores (insectos) y mejora la calidad del metal reciclado." },
   { id: "tetra", title: "Envases Tetra Pak", image: "./Segregacion/Tetra_pak.png", description: "Multicapa (cartón, aluminio, plástico). Se gestiona junto al papel y cartón.", steps: ["Enjuagar bien", "Desplegar esquinas", "Aplastar"], destiny: "TACHO AMARILLO", colorClass: "bg-yellow-400 text-black", advice: "Desplegar las pestañas permite un aplastado total, ahorrando 70% de espacio." },
-  { id: "vidrio", title: "Botellas de Vidrio", image: "./Segregacion/Vidrio.png", description: "Envases de salsas o bebidas. 100% reciclable infinitas veces.", steps: ["Eliminar líquidos", "Enjuague obligatorio", "Quitar tapa o corcho", "Depositar sin romper"], destiny: "COMUNICARSE CON ENCARGADO DE RESIDUOS SÓLIDOS", colorClass: "bg-red-600 text-white", advice: "Evite romper el vidrio; los fragmentos pequeños son difíciles de segregar." }
+  { id: "vidrio", title: "Botellas de Vidrio", image: "./Segregacion/Vidrio.png", description: "Envases de salsas o bebidas. 100% reciclable infinitas veces.", steps: ["Eliminar líquidos", "Enjuague obligatorio", "Quitar tapa o corcho", "Depositar sin romper"], destiny: "COMUNICARSE CON ENCARGADO DE RESIDUOS SÓLIDOS", colorClass: "bg-purple-600 text-white", advice: "Evite romper el vidrio; los fragmentos pequeños son difíciles de segregar." }
 ];
 
 const empaques: MaterialInfo[] = [
@@ -55,7 +55,7 @@ const ciencia: MaterialInfo[] = [
 const mantenimiento: MaterialInfo[] = [
   { id: "pilas-1", title: "Pilas y Baterías", image: "./Segregacion/Pilas.png", description: "Dispositivos con metales pesados. Residuos peligrosos por toxicidad.", steps: ["Separar todas las usadas", "No abrir ni perforar", "Depositar en envase rígido", "Entregar al encargado"], destiny: "BOTELLA PLÁSTICA", colorClass: "bg-orange-500 text-white", advice: "Mantener fuera de fuentes de calor para evitar fugas de electrolitos tóxicos." },
   // NUEVO 5
-  { id: "aceites", title: "Aceites y Lubricantes", image: "./Segregacion/Aceites.png", description: "Residuos de generadores eléctricos. Hidrocarburos tóxicos.", steps: ["Envase hermético", "Rotular 'Aceite usado'", "Evitar mezcla con agua", "Retorno obligatorio"], destiny: "CONTACTAR CON ENVARGADO DE RESIDUOS SOLIDOS", colorClass: "bg-red-600 text-white", advice: "Su disposición está estrictamente prohibida en campo; retorno obligatorio." },
+  { id: "aceites", title: "Aceites y Lubricantes", image: "./Segregacion/Aceites.png", description: "Residuos de generadores eléctricos. Hidrocarburos tóxicos.", steps: ["Envase hermético", "Rotular 'Aceite usado'", "Evitar mezcla con agua", "Retorno obligatorio"], destiny: "CONTACTAR CON ENVARGADO DE RESIDUOS SOLIDOS", colorClass: "bg-purple-600 text-white", advice: "Su disposición está estrictamente prohibida en campo; retorno obligatorio." },
   // NUEVO 6
   { id: "trapos", title: "Trapos contaminados", image: "./Segregacion/Trapos.png", description: "Textiles con grasa, combustible o solventes. Inflamables.", steps: [], destiny: "TACHO NEGRO", colorClass: "bg-slate-700 text-white", advice: "Deben segregarse en contenedores metálicos con tapa hermética." },
   // NUEVO 7
@@ -67,7 +67,7 @@ const comida: MaterialInfo[] = [
   // NUEVO 8
   { id: "carnes", title: "Restos de Carne/Huesos", image: "./Segregacion/Carnes.png", description: "Residuos orgánicos de origen animal. Manejo estricto en la Antártida.", steps: ["Eliminar líquidos", "Depositar en tacho marrón", "Bolsa bien cerrada"], destiny: "TACHO MARRÓN", colorClass: "bg-amber-800 text-white", advice: "Vital para evitar introducir patógenos foráneos al ecosistema antártico." },
   // NUEVO 9
-  { id: "borra", title: "Granos de Filtrante", image: "./Segregacion/Borra.png", description: "Filtros de café y saquitos de té usados (sin líquidos).", steps: ["Retirar líquido", "Sin plásticos", "Bolsa cerrada"], destiny: "TACHO MARRÓN (ORGÁNICOS)", colorClass: "bg-amber-800 text-white", advice: "Son sustratos orgánicos de alta degradabilidad." }
+  { id: "borra", title: "Granos de Filtrante", image: "./Segregacion/Borra.png", description: "Filtros de café y saquitos de té usados (sin líquidos).", steps: ["Empaque de papel externo a papel", "Envoltorio interior a no reciclables", "Granos a organicos"], destiny: "TACHO MARRÓN (ORGÁNICOS)", colorClass: "bg-amber-800 text-white", advice: "Son sustratos orgánicos de alta degradabilidad." }
 ];
 
 const higiene: MaterialInfo[] = [
@@ -183,7 +183,7 @@ export default function ManualSegregacionPage() {
         <div className="mb-12">
           <h3 className="text-3xl md:text-4xl font-black text-amber-600 uppercase mb-6 flex items-center gap-4">
             <span className="w-4 h-12 bg-amber-600 rounded-full"></span>
-            1. Tacho MARRÓN: Residuos Orgánicos
+            1. TACHO DE ORGÁNICOS (MARRÓN)
           </h3>
           <p className="text-slate-300 text-lg leading-relaxed">
             En este contenedor se depositan todos los desechos de origen biológico que pueden degradarse naturalmente.
@@ -194,13 +194,13 @@ export default function ManualSegregacionPage() {
             <h4 className="flex items-center gap-3 text-emerald-400 font-black uppercase mb-8 text-xl"><CheckCircle2 /> ¿Qué ingresa?</h4>
             <ul className="space-y-4 text-slate-300 text-sm">
               <li><strong>Desechos de cocina:</strong> Sobrantes de comida procesada, carnes, huesos y cáscaras (sin líquidos).</li>
-              <li><strong>Frutas y vegetales:</strong> Cáscaras, semillas y restos crudos o cocidos.</li>
-              <li><strong>Jardín y Cafetería:</strong> Hojas, podas, granos y posos de café (sin líquidos).</li>
+              <li><strong>Hojas</strong> </li>
+              <li><strong>Granos:</strong>.</li>
             </ul>
           </div>
           <div className="bg-red-500/5 border border-red-500/10 rounded-[2.5rem] p-10">
             <h4 className="flex items-center gap-3 text-red-400 font-black uppercase mb-8 text-xl"><XCircle /> ¿Qué NO ingresa?</h4>
-            <p className="text-slate-300 text-sm">Plásticos (sean o no compostables), vidrios, servilletas, metales o colillas de cigarro.</p>
+            <p className="text-slate-300 text-sm">Líquidos (al desague por el caño), Servilletas usadas, Aceite de cocina usado (es un líquido contaminante), Excrementos, Madera trada con barniz</p>
           </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-10 border-t border-white/5">
@@ -216,7 +216,7 @@ export default function ManualSegregacionPage() {
         <div className="mb-12">
           <h3 className="text-3xl md:text-4xl font-black text-yellow-400 uppercase mb-6 flex items-center gap-4">
             <span className="w-4 h-12 bg-yellow-400 rounded-full"></span>
-            2. Tacho AMARILLO: Papel, Cartón y Tetra
+            2. TACHO DE PAPEL (AMARILLO)
           </h3>
           <p className="text-slate-300 text-lg leading-relaxed">Materiales celulósicos y envases compuestos limpios y secos.</p>
         </div>
@@ -225,13 +225,13 @@ export default function ManualSegregacionPage() {
             <h4 className="flex items-center gap-3 text-emerald-400 font-black uppercase mb-8 text-xl"><CheckCircle2 /> ¿Qué ingresa?</h4>
             <ul className="space-y-4 text-slate-300 text-sm">
               <li><strong>Papelería:</strong> Hojas bond, cuadernos, agendas, revistas y periódicos.</li>
-              <li><strong>Empaques:</strong> Cajas de cartón, cereales, pasta dental, tubos de papel y javas de huevo.</li>
+              <li><strong>Empaques:</strong> Cajas de cartón, cereales, tubos de papel y javas de huevo.</li>
               <li><strong>Bebidas:</strong> Cajas de leche, jugos y néctares (Tetra Pak).</li>
             </ul>
           </div>
           <div className="bg-red-500/5 border border-red-500/10 rounded-[2.5rem] p-10">
             <h4 className="flex items-center gap-3 text-red-400 font-black uppercase mb-8 text-xl"><XCircle /> ¿Qué NO ingresa?</h4>
-            <p className="text-slate-300 text-sm">Papel higiénico usado, servilletas sucias o cartones con restos de comida pegada.</p>
+            <p className="text-slate-300 text-sm">Papel plastificados, servilletas sucias o cartones con restos de comida pegada, Papel térmico de boletas</p>
           </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-10 border-t border-white/5">
@@ -293,7 +293,7 @@ export default function ManualSegregacionPage() {
           </div>
           <div className="bg-red-500/5 border border-red-500/10 rounded-[2.5rem] p-10">
             <h4 className="flex items-center gap-3 text-red-400 font-black uppercase mb-8 text-xl"><XCircle /> ¿Qué NO ingresa?</h4>
-            <p className="text-slate-300 text-sm">Bolsas de plástico o plásticos con restos de comida/aceite pesado.</p>
+            <p className="text-slate-300 text-sm">Bolsas de plástico o plásticos con restos, Envoltorios de galletas o golosinas y Envases de productos tóxicos.</p>
           </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-10 border-t border-white/5">
@@ -309,7 +309,7 @@ export default function ManualSegregacionPage() {
         <div className="mb-12">
           <h3 className="text-3xl md:text-4xl font-black text-slate-400 uppercase mb-6 flex items-center gap-4">
             <span className="w-4 h-12 bg-slate-600 rounded-full"></span>
-            5. Tacho NEGRO: No Aprovechables
+            5. TACHO DE NO RECICLAblES (NEGRO)
           </h3>
           <p className="text-slate-400 text-lg leading-relaxed">Residuos que por su composición o suciedad no pueden ser reciclados.</p>
         </div>
@@ -319,12 +319,12 @@ export default function ManualSegregacionPage() {
             <ul className="space-y-4 text-slate-400 text-sm">
               <li><strong>Higiene:</strong> Papel higiénico usado, toallitas y servilletas sucias.</li>
               <li><strong>Snacks:</strong> Envoltorios de dulces, snacks, bolsas comunes y chicles.</li>
-              <li><strong>Otros:</strong> Tecnopor, colillas de cigarro y polvo de barrer.</li>
+              <li><strong>Otros:</strong> Tecnopor, colillas de cigarro y cartones.</li>
             </ul>
           </div>
           <div className="bg-red-500/5 border border-red-500/10 rounded-[2.5rem] p-10">
             <h4 className="flex items-center gap-3 text-red-400 font-black uppercase mb-8 text-xl"><XCircle /> ¿Qué NO ingresa?</h4>
-            <p className="text-slate-400 text-sm">Nada reciclable (cartón limpio o PET) ni restos orgánicos compostables.</p>
+            <p className="text-slate-400 text-sm">Vasos de papel o cartón (papel, cartón y tetra), Plásticos con comida, Líquidos</p>
           </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-10 border-t border-white/5">
@@ -393,6 +393,9 @@ export default function ManualSegregacionPage() {
 
       <footer className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 text-center text-slate-500 text-sm">
         <p>© 2026 Programa Nacional Antártico - Gestión Ambiental ECAMP</p>
+        <p className="text-xs text-slate-600">
+          Diseño y Desarrollo: <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold">Alberto Sarapura G.</a>
+        </p>
       </footer>
     </div>
     </div>

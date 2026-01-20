@@ -88,6 +88,12 @@ export default function SegregacionPage() {
           ))}
         </div>
       </section>
+       <footer className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 text-center text-slate-500 text-sm">
+        <p>© 2026 Programa Nacional Antártico - Gestión Ambiental ECAMP</p>
+        <p className="text-xs text-slate-600">
+          Diseño y Desarrollo: <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold">Alberto Sarapura G.</a>
+        </p>
+      </footer>
     </div>
   );
 }

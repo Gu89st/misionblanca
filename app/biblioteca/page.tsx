@@ -2,6 +2,11 @@ import React from 'react';
 
 const documentos = [
   {
+    titulo: "Taller Antartico",
+    imagen: "./docs/Base.jpeg",
+    archivo: "./docs/TALLER_ANTAR_XXXII.PDF",
+  },
+  {
     titulo: "Flora y Fauna de la base antártica",
     imagen: "https://images.unsplash.com/photo-1517783999520-f068d7431a60?auto=format&fit=crop&q=80&w=800",
     archivo: "./docs/Flora_y_fauna_de_la_base_antartica.pdf",
@@ -90,9 +95,11 @@ export default function BibliotecaPage() {
           </a>
         ))}
       </div>
-
-      <footer className="mt-20 text-center text-slate-600 text-[11px] uppercase tracking-widest">
-        Programa Nacional Antártico - Sistema de Gestión Documental
+       <footer className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 text-center text-slate-500 text-sm">
+        <p>© 2026 Programa Nacional Antártico - Gestión Ambiental ECAMP</p>
+        <p className="text-xs text-slate-600">
+          Diseño y Desarrollo: <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold">Alberto Sarapura G.</a>
+        </p>
       </footer>
     </main>
   );
