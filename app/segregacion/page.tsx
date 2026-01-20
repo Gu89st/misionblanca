@@ -51,7 +51,7 @@ export default function ManualSegregacionPage() {
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
       {data.map((item) => (
         <div key={item.id} className="group bg-slate-900/40 border border-white/25 rounded-[2.5rem] overflow-hidden hover:border-white/30 transition-all duration-300 flex flex-col shadow-xl">
-          <div className="w-full h-80 relative overflow-hidden bg-white/5">
+              <div className="w-full h-64 md:h-80 relative overflow-hidden bg-white/5">
             <img src={item.image} alt={item.title} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" />
             <div className={`absolute top-4 left-4 px-3 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-2xl ${item.colorClass}`}>
               {item.destiny}
