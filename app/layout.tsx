@@ -4,6 +4,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Misión Blanca",
+  icons:{
+    icon: "/Docs/Logo.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
