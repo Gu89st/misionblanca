@@ -67,7 +67,7 @@ const comida: MaterialInfo[] = [
   // NUEVO 8
   { id: "carnes", title: "Restos de Carne/Huesos", image: "./Segregacion/Carnes.png", description: "Residuos orgánicos de origen animal. Manejo estricto en la Antártida.", steps: ["Eliminar líquidos", "Depositar en tacho marrón", "Bolsa bien cerrada"], destiny: "TACHO MARRÓN", colorClass: "bg-amber-800 text-white", advice: "Vital para evitar introducir patógenos foráneos al ecosistema antártico." },
   // NUEVO 9
-  { id: "borra", title: "Filtros de Café, té y otros", image: "./Segregacion/Borra.png", description: "Filtros de café y saquitos de té usados (sin líquidos).", steps: ["Retirar líquido", "Sin plásticos", "Bolsa cerrada"], destiny: "TACHO MARRÓN", colorClass: "bg-amber-800 text-white", advice: "Son sustratos orgánicos de alta degradabilidad." }
+  { id: "borra", title: "Granos de Filtrante", image: "./Segregacion/Borra.png", description: "Filtros de café y saquitos de té usados (sin líquidos).", steps: ["Retirar líquido", "Sin plásticos", "Bolsa cerrada"], destiny: "TACHO MARRÓN (ORGÁNICOS)", colorClass: "bg-amber-800 text-white", advice: "Son sustratos orgánicos de alta degradabilidad." }
 ];
 
 const higiene: MaterialInfo[] = [
