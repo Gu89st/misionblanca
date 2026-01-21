@@ -2,7 +2,7 @@ import React from 'react';
 
 const documentos = [
   {
-    titulo: "Taller Antartico",
+    titulo: "TALLER 1: Investigamos con excelencia, segregamos con excelencia - ANTAR XXXII",
     imagen: "./Docs/Base.png", // Quité el punto inicial
     archivo: "/TALLER_ANTAR_XXXII.pdf", // Asegúrate que la extensión real sea .PDF mayúscula
   },
@@ -17,7 +17,7 @@ const documentos = [
     archivo: "/Protocolo_de_madrid.pdf", // Quité el punto inicial
   },
   {
-    titulo: "Treaty Original",
+    titulo: "Tratado Antártico",
     imagen: "/Docs/Tratado_Antartico.jpeg", // Quité el punto. Revisa si la carpeta es 'Docs' o 'docs'
     archivo: "/treaty_original.pdf", 
   },

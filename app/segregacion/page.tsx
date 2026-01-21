@@ -28,16 +28,16 @@ interface MaterialInfo {
 const bebidas: MaterialInfo[] = [
   { id: "pet-1", title: "Botellas de Agua/Gaseosa", image: "./Segregacion/Botellas.png", description: "Plástico PET altamente reciclable. Debe entregarse limpio y compactado.", steps: ["Enjuagar bien", "Secar o escurrir", "Aplastar verticalmente"], destiny: "TACHO BLANCO", colorClass: "bg-white text-slate-900", advice: "La compactación vertical maximiza la eficiencia del almacenamiento en la base." },
   { id: "hdpe-2", title: "Yogurt, Lácteos y Shampoo", image: "./Segregacion/Lacteos.png", description: "Plásticos densos que requieren eliminación total de residuos orgánicos.", steps: ["Enjuague obligatorio", "Quitar etiquetas", "Aplastar"], destiny: "TACHO BLANCO", colorClass: "bg-white text-slate-900", advice: "Lave inmediatamente después del uso para evitar fermentación y olores." },
-  { id: "aluminio", title: "Latas de Bebidas", image: "./Segregacion/Latas.png", description: "Aluminio ligero. Su reciclaje ahorra un 95% de energía en producción.", steps: ["Vaciar contenido", "Enjuagar ligero", "Aplastar", "Sin etiquetas"], destiny: "TACHO AZUL", colorClass: "bg-blue-600 text-white", advice: "El aluminio limpio mantiene el valor más alto de recuperación en el mercado." },
-  { id: "hojalata", title: "Latas de Conservas", image: "./Segregacion/conservas.png", description: "Hojalata (atún, duraznos). Cuidado con los bordes cortantes.", steps: ["Retirar restos de comida", "Enjuagar bien", "Secar", "No deformar peligrosamente"], destiny: "TACHO AZUL", colorClass: "bg-blue-600 text-white", advice: "La limpieza evita vectores (insectos) y mejora la calidad del metal reciclado." },
+  { id: "aluminio", title: "Latas de Bebidas", image: "./Segregacion/Latas.png", description: "Aluminio ligero. Su reciclaje ahorra un 95% de energía en producción.", steps: ["Vaciar contenido", "Enjuagar ligero de ser posible", "Quitar etiquetas de ser posibles (Etiqueta: No aprovechable - Tacho negro)", "Aplastar para reeducir volumen"], destiny: "TACHO AZUL", colorClass: "bg-blue-600 text-white", advice: "El aluminio limpio mantiene el valor más alto de recuperación en el mercado." },
+  { id: "hojalata", title: "Latas de Conservas", image: "./Segregacion/conservas.png", description: "Hojalata (atún, duraznos). Cuidado con los bordes cortantes.", steps: ["Retirar restos de comida o contenido interior", "Enjuagar de ser posible", "Secar de ser posible", "No deformar peligrosamente"], destiny: "TACHO AZUL", colorClass: "bg-blue-600 text-white", advice: "La limpieza evita vectores (insectos) y mejora la calidad del metal reciclado." },
   { id: "tetra", title: "Envases Tetra Pak", image: "./Segregacion/Tetra_pak.png", description: "Multicapa (cartón, aluminio, plástico). Se gestiona junto al papel y cartón.", steps: ["Enjuagar bien", "Desplegar esquinas", "Aplastar"], destiny: "TACHO AMARILLO", colorClass: "bg-yellow-400 text-black", advice: "Desplegar las pestañas permite un aplastado total, ahorrando 70% de espacio." },
-  { id: "vidrio", title: "Botellas de Vidrio", image: "./Segregacion/Vidrio_Roto.png", description: "Envases de salsas o bebidas. 100% reciclable infinitas veces.", steps: ["Eliminar líquidos", "Enjuague obligatorio", "Quitar tapa o corcho", "Depositar sin romper"], destiny: "COMUNICARSE CON ENCARGADO DE RESIDUOS SÓLIDOS", colorClass: "bg-purple-600 text-white", advice: "Evite romper el vidrio; los fragmentos pequeños son difíciles de segregar." }
+  { id: "vidrio", title: "Botellas de Vidrio", image: "./Segregacion/Vidrio.png", description: "Envases de salsas o bebidas. 100% reciclable infinitas veces.", steps: ["Eliminar líquidos", "Enjuague obligatorio", "Quitar tapa o corcho", "Depositar sin romper"], destiny: "COMUNICARSE CON ENCARGADO DE RESIDUOS SÓLIDOS", colorClass: "bg-purple-600 text-white", advice: "Evite romper el vidrio; los fragmentos pequeños son difíciles de segregar." }
 ];
 
 const empaques: MaterialInfo[] = [
   { id: "carton-1", title: "Cajas de Cartón", image: "./Segregacion/Cajas.png", description: "Contenedores de fibras de celulosa. Alta reciclabilidad siempre que estén limpias.", steps: ["Desarmar completamente", "Aplastar y apilar planas", "Retirar cintas o etiquetas", "Mantener secas"], destiny: "TACHO AMARILLO", colorClass: "bg-yellow-400 text-black", advice: "La humedad degrada las fibras celulósicas; asegure que el cartón se mantenga seco." },
   { id: "papel-1", title: "Papel de Oficina/Documentos", image: "./Segregacion/Hojas.png", description: "Hojas bond, informes y documentos administrativos. Fibras reciclables.", steps: ["Separar hojas limpias", "Retirar grapas o clips", "Apilar ordenadamente", "Proteger de humedad"], destiny: "TACHO AMARILLO", colorClass: "bg-yellow-400 text-black", advice: "Retirar metales mejora la calidad del insumo y reduce costos en las plantas de fibra." },
-  { id: "snacks-1", title: "Envoltorios de comida", image: "./Segregacion/Envoltorios.png", description: "Empaques flexibles multicapa de baja reciclabilidad.", steps: ["Vaciar totalmente", "Sacudir restos", "Doblar para reducir volumen", "No mezclar con plásticos rígidos"], destiny: "TACHO NEGRO", colorClass: "bg-slate-700 text-white", advice: "Mantenerlos separados preserva la calidad de los materiales recuperables puros." },
+  { id: "snacks-1", title: "Envoltorios de comida", image: "./Segregacion/Envoltorios.png", description: "Empaques flexibles multicapa de baja reciclabilidad.", steps: ["Vaciar totalmente", "Sacudir restos", "Doblar para reducir volumen"], destiny: "TACHO NEGRO", colorClass: "bg-slate-700 text-white", advice: "Mantenerlos separados preserva la calidad de los materiales recuperables puros." },
   // NUEVO 1
  // { id: "sobres-comida", title: "Sobres de Comida Instantánea", image: "./Segregacion/Instantaneo.png", description: "Empaques laminados multicapa con barrera térmica diseñados para contener alimentos deshidratados.", steps: ["Vaciar completamente", "Sacudir residuos sólidos", "Doblar para compactar", "Depositar sin mezclar"], destiny: "TACHO NEGRO", colorClass: "bg-slate-700 text-white", advice: "Su estructura multicapa (plástico–aluminio) impide su valorización en procesos convencionales." }
 ];
@@ -47,15 +47,15 @@ const ciencia: MaterialInfo[] = [
   // NUEVO 2
   { id: "guantes-epp", title: "Guantes y EPP", image: "./Segregacion/Guantes.png", description: "Guantes de nitrilo o látex usados en experimentos. Contienen trazas de reactivos.", steps: ["Retirar sin tocar exterior", "Doblar y envolver", "Colocar en bolsa roja", "Sellar y rotular"], destiny: "TACHO NEGRO", colorClass: "bg-slate-700 text-white", advice: "EPP contaminados pueden contener trazas de reactivos o microorganismos que comprometen la bioseguridad." },
   // NUEVO 3
-  { id: "quimicos", title: "Sustancias Químicas", image: "./Segregacion/Quimicos.png", description: "Reactivos sólidos o líquidos. Riesgos por corrosividad o toxicidad.", steps: ["Mantener envase original", "Etiqueta visible", "Verificar cierre", "Separar por compatibilidad"], destiny: "TACHO ROJO", colorClass: "bg-red-600 text-white", advice: "Mantener el envase original evita reacciones peligrosas por mezclas inadvertidas." },
+  { id: "quimicos", title: "Sustancias Químicas", image: "./Segregacion/Quimicos.png", description: "Reactivos sólidos o líquidos. Riesgos por corrosividad o toxicidad.", steps: ["Mantener envase original", "Etiqueta visible"], destiny: "TACHO ROJO", colorClass: "bg-red-600 text-white", advice: "Mantener el envase original evita reacciones peligrosas por mezclas inadvertidas." },
   // NUEVO 4
-  { id: "muestras", title: "Muestras Biológicas", image: "./Segregacion/Bio.png", description: "Restos de sedimentos, aguas o material biológico procesado.", steps: ["Contenedor hermético", "Rotular 'Residuo biológico'", "Depositar en rígido", "Entrega controlada"], destiny: "TACHO ROJO", colorClass: "bg-red-600 text-white", advice: "La trazabilidad reduce la probabilidad de errores en el manejo de residuos científicos." }
+  { id: "muestras", title: "Muestras Biológicas", image: "./Segregacion/Bio.png", description: "Restos de sedimentos, aguas o material biológico procesado.", steps: ["Contenedor hermético", "Rotular 'Residuo biológico'"], destiny: "TACHO ROJO", colorClass: "bg-red-600 text-white", advice: "La trazabilidad reduce la probabilidad de errores en el manejo de residuos científicos." }
 ];
 
 const mantenimiento: MaterialInfo[] = [
   { id: "pilas-1", title: "Pilas y Baterías", image: "./Segregacion/Pilas.png", description: "Dispositivos con metales pesados. Residuos peligrosos por toxicidad.", steps: ["Separar todas las usadas", "No abrir ni perforar", "Depositar en envase rígido", "Entregar al encargado"], destiny: "BOTELLA PLÁSTICA", colorClass: "bg-orange-500 text-white", advice: "Mantener fuera de fuentes de calor para evitar fugas de electrolitos tóxicos." },
   // NUEVO 5
-  { id: "aceites", title: "Aceites y Lubricantes", image: "./Segregacion/Aceites.png", description: "Residuos de generadores eléctricos. Hidrocarburos tóxicos.", steps: ["Envase hermético", "Rotular 'Aceite usado'", "Evitar mezcla con agua", "Retorno obligatorio"], destiny: "CONTACTAR CON ENVARGADO DE RESIDUOS SOLIDOS", colorClass: "bg-purple-600 text-white", advice: "Su disposición está estrictamente prohibida en campo; retorno obligatorio." },
+  { id: "aceites", title: "Aceites y Lubricantes", image: "./Segregacion/Aceites.png", description: "Residuos de generadores eléctricos. Hidrocarburos tóxicos.", steps: ["Envase hermético", "Rotular 'Aceite usado'", "Evitar mezcla con agua", "Retorno obligatorio"], destiny: "CONTACTAR CON EL ENCARGADO DE RESIDUOS SOLIDOS", colorClass: "bg-purple-600 text-white", advice: "Su disposición está estrictamente prohibida en campo; retorno obligatorio." },
   // NUEVO 6
   { id: "trapos", title: "Trapos contaminados", image: "./Segregacion/Trapos.png", description: "Textiles con grasa, combustible o solventes. Inflamables.", steps: [], destiny: "TACHO NEGRO", colorClass: "bg-slate-700 text-white", advice: "Deben segregarse en contenedores metálicos con tapa hermética." },
   // NUEVO 7
@@ -65,15 +65,15 @@ const mantenimiento: MaterialInfo[] = [
 const comida: MaterialInfo[] = [
   { id: "vegetal-1", title: "Frutas y Verduras", image: "./Segregacion/Organicos.png", description: "Residuos biodegradables.", steps: ["Evitar exceso de humedad", "Depositar sin bolsas", "Tapar contenedor"], destiny: "TACHO MARRÓN", colorClass: "bg-amber-800 text-white", advice: "Su manejo evita la atracción de fauna silvestre hacia la base científica." },
   // NUEVO 8
-  { id: "carnes", title: "Restos de Carne/Huesos", image: "./Segregacion/Carnes.png", description: "Residuos orgánicos de origen animal. Manejo estricto en la Antártida.", steps: ["Eliminar líquidos", "Depositar en tacho marrón", "Bolsa bien cerrada"], destiny: "TACHO MARRÓN", colorClass: "bg-amber-800 text-white", advice: "Vital para evitar introducir patógenos foráneos al ecosistema antártico." },
+  { id: "carnes", title: "Restos de Carne/Huesos", image: "./Segregacion/Carnes.png", description: "Residuos orgánicos de origen animal.", steps: ["Eliminar líquidos", "Depositar en tacho marrón"], destiny: "TACHO MARRÓN", colorClass: "bg-amber-800 text-white", advice: "Vital para evitar introducir patógenos foráneos al ecosistema antártico." },
   // NUEVO 9
-  { id: "borra", title: "Granos de Filtrante", image: "./Segregacion/Borra.png", description: "Filtros de café y saquitos de té usados (sin líquidos).", steps: ["Empaque de papel externo a papel", "Envoltorio interior a no reciclables", "Granos a organicos"], destiny: "TACHO MARRÓN (ORGÁNICOS)", colorClass: "bg-amber-800 text-white", advice: "Son sustratos orgánicos de alta degradabilidad." }
+  { id: "borra", title: "Granos de Filtrante", image: "./Segregacion/Borra.png", description: "Filtros de café y saquitos de té usados (sin líquidos).", steps: ["Empaque de papel externo a TACHO DE PAPEL (AMARILLO)", "Envoltorio interior a TACHO NO RECICLABLES (NEGRO)", "Granos a TACHO DE ORGÁNICOS (MARRÓN)"], destiny: "TACHO MARRÓN (ORGÁNICOS)", colorClass: "bg-amber-800 text-white", advice: "Son sustratos orgánicos de alta degradabilidad." }
 ];
 
 const higiene: MaterialInfo[] = [
-  { id: "sanitarios-1", title: "Residuos de Baño", image: "./Segregacion/Bano.png", description: "Papel higiénico y toallitas. Carga biológica no aprovechable.", steps: ["Depósito directo", "Bolsa resistente", "Sellar al llenar"], destiny: "TACHO NEGRO", colorClass: "bg-slate-700 text-white", advice: "Pequeñas cantidades pueden inutilizar materiales reciclables por contaminación." },
+  { id: "sanitarios-1", title: "Residuos de Baño", image: "./Segregacion/Bano.png", description: "Papel higiénico y toallitas. Carga biológica no aprovechable.", steps: ["Depósito directo", "Los residuos de baño tienen su propio contenedor de no aprovechables en los baños asignados"], destiny: "TACHO NEGRO", colorClass: "bg-slate-700 text-white", advice: "Pequeñas cantidades pueden inutilizar materiales reciclables por contaminación." },
   // NUEVO 10
-  { id: "mascarillas", title: "Mascarillas y Limpieza", image: "./Segregacion/Mascarillas.png", description: "Trapos domésticos y mascarillas descartables. Riesgo sanitario.", steps: ["Doblar o envolver", "Depositar en negro"], destiny: "TACHO NEGRO", colorClass: "bg-slate-700 text-white", advice: "El embolsado inmediato reduce riesgos de exposición." },
+  { id: "mascarillas", title: "Mascarillas y Limpieza", image: "./Segregacion/Mascarillas.png", description: "Trapos domésticos y mascarillas descartables. Riesgo sanitario.", steps: ["Doblar o envolver", "Depositar en tacho negro"], destiny: "TACHO NEGRO", colorClass: "bg-slate-700 text-white", advice: "El embolsado inmediato reduce riesgos de exposición." },
   // NUEVO 11
   { id: "vajilla", title: "Cerámicos o Vajilla Rota", image: "./Segregacion/Vajilla.png", description: "Fragmentos de platos o tazas. Bordes cortantes.", steps: ["Recolectar con cuidado", "Envolver en papel grueso", "Bolsa resistente"], destiny: "TACHO NEGRO", colorClass: "bg-slate-700 text-white", advice: "El embalaje seguro disminuye el riesgo operacional para el personal." }
 ];
@@ -179,7 +179,7 @@ export default function ManualSegregacionPage() {
       </div>
 
       {/* 1. TACHO MARRÓN */}
-      <div className="max-w-7xl mx-auto mb-20 bg-amber-900/5 border border-amber-800/20 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
+      <div id="color-1" className="max-w-7xl mx-auto mb-20 bg-amber-900/5 border border-amber-800/20 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
         <div className="mb-12">
           <h3 className="text-3xl md:text-4xl font-black text-amber-600 uppercase mb-6 flex items-center gap-4">
             <span className="w-4 h-12 bg-amber-600 rounded-full"></span>
@@ -212,7 +212,7 @@ export default function ManualSegregacionPage() {
       </div>
 
       {/* 2. TACHO AMARILLO */}
-      <div className="max-w-7xl mx-auto mb-20 bg-yellow-900/5 border border-yellow-500/20 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
+      <div id="color-2" className="max-w-7xl mx-auto mb-20 bg-yellow-900/5 border border-yellow-500/20 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
         <div className="mb-12">
           <h3 className="text-3xl md:text-4xl font-black text-yellow-400 uppercase mb-6 flex items-center gap-4">
             <span className="w-4 h-12 bg-yellow-400 rounded-full"></span>
@@ -243,7 +243,7 @@ export default function ManualSegregacionPage() {
       </div>
 
       {/* 3. TACHO AZUL */}
-      <div className="max-w-7xl mx-auto mb-20 bg-blue-900/5 border border-blue-500/20 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
+      <div id="color-3" className="max-w-7xl mx-auto mb-20 bg-blue-900/5 border border-blue-500/20 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
         <div className="mb-12">
           <h3 className="text-3xl md:text-4xl font-black text-blue-500 uppercase mb-6 flex items-center gap-4">
             <span className="w-4 h-12 bg-blue-500 rounded-full"></span>
@@ -274,7 +274,7 @@ export default function ManualSegregacionPage() {
       </div>
 
       {/* 4. TACHO BLANCO */}
-      <div className="max-w-7xl mx-auto mb-20 bg-slate-100/5 border border-white/20 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
+      <div id="color-4" className="max-w-7xl mx-auto mb-20 bg-slate-100/5 border border-white/20 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
         <div className="mb-12">
           <h3 className="text-3xl md:text-4xl font-black text-white uppercase mb-6 flex items-center gap-4">
             <span className="w-4 h-12 bg-white rounded-full"></span>
@@ -305,7 +305,7 @@ export default function ManualSegregacionPage() {
       </div>
 
       {/* 5. TACHO NEGRO */}
-      <div className="max-w-7xl mx-auto mb-20 bg-slate-900 border border-white/10 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
+      <div id="color-5" className="max-w-7xl mx-auto mb-20 bg-slate-900 border border-white/10 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
         <div className="mb-12">
           <h3 className="text-3xl md:text-4xl font-black text-slate-400 uppercase mb-6 flex items-center gap-4">
             <span className="w-4 h-12 bg-slate-600 rounded-full"></span>
@@ -336,7 +336,7 @@ export default function ManualSegregacionPage() {
       </div>
 
       {/* 6. TACHO ROJO - LABORATORIO */}
-      <div className="max-w-7xl mx-auto mb-20 bg-red-900/5 border border-red-500/20 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
+      <div id="color-6" className="max-w-7xl mx-auto mb-20 bg-red-900/5 border border-red-500/20 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
         <h3 className="text-3xl md:text-4xl font-black text-red-500 uppercase mb-12 flex items-center gap-4">
           <span className="w-4 h-12 bg-red-500 rounded-full"></span>
           Tacho ROJO: Peligrosos de Laboratorio
@@ -364,7 +364,7 @@ export default function ManualSegregacionPage() {
       </div>
 
       {/* 7. TACHO ROJO - TÓPICO */}
-      <div className="max-w-7xl mx-auto mb-24 bg-red-900/5 border border-red-600/20 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
+      <div id="color-7" className="max-w-7xl mx-auto mb-24 bg-red-900/5 border border-red-600/20 rounded-[3.5rem] p-8 md:p-16 shadow-2xl">
         <h3 className="text-3xl md:text-4xl font-black text-red-600 uppercase mb-12 flex items-center gap-4">
           <span className="w-4 h-12 bg-red-600 rounded-full"></span>
           Tacho ROJO: Biocontaminados (Tópico)
