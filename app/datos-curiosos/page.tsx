@@ -90,7 +90,7 @@ export default function DatosCuriososPage() {
             controls 
             preload="metadata"
           >
-            <source src="/Docs/Video.mp4" type="video/mp4" />
+            <source src="/Docs/VIDEO.mp4" type="video/mp4" />
             Tu navegador no soporta la reproducción de video.
           </video>
       </div>

@@ -14,7 +14,7 @@ const categories = [
 const colorCategories = [
   { title: "Tacho Marrón: Orgánicos", image: "./Docs/Marron.jpeg", anchor: "color-1", colorClass: "bg-amber-700" },
   { title: "Tacho Amarillo: Papel y Cartón", image: "./Docs/Amarillo.jpeg", anchor: "color-2", colorClass: "bg-yellow-400" },
-  { title: "Tacho Azul: Metales", image: "./Docs/Azul.jpeg", anchor: "color-3", colorClass: "bg-blue-600" },
+  { title: "Tacho Azul: Metales", image: "./Docs/azul.jpeg", anchor: "color-3", colorClass: "bg-blue-600" },
   { title: "Tacho Blanco: Plástico", image: "./Docs/Blanco.jpeg", anchor: "color-4", colorClass: "bg-white" },
   { title: "Tacho Negro: No Aprovechables", image: "./Docs/Negro.jpeg", anchor: "color-5", colorClass: "bg-slate-950 border border-white/20" },
   { title: "Tacho Rojo: Peligrosos", image: "./Docs/Rojo2.jpeg", anchor: "color-6", colorClass: "bg-red-600" },

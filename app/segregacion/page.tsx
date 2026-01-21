@@ -43,7 +43,7 @@ const empaques: MaterialInfo[] = [
 ];
 
 const ciencia: MaterialInfo[] = [
-  { id: "vidrio-roto", title: "Material de Vidrio Roto", image: "./Segregacion/Vidrio_roto.png", description: "Tubos de ensayo, placas de Petri. Residuos cortopunzantes de laboratorio.", steps: ["Usar herramientas (no manos)", "Contenedor rígido rotulado", "Sellar correctamente", "Entrega especial"], destiny: "TACHO ROJO", colorClass: "bg-red-600 text-white", advice: "Utilice contenedores certificados para reducir accidentes y riesgos biológicos." },
+  { id: "vidrio-roto", title: "Material de Vidrio Roto", image: "./Segregacion/Vidrio_Roto.png", description: "Tubos de ensayo, placas de Petri. Residuos cortopunzantes de laboratorio.", steps: ["Usar herramientas (no manos)", "Contenedor rígido rotulado", "Sellar correctamente", "Entrega especial"], destiny: "TACHO ROJO", colorClass: "bg-red-600 text-white", advice: "Utilice contenedores certificados para reducir accidentes y riesgos biológicos." },
   // NUEVO 2
   { id: "guantes-epp", title: "Guantes y EPP", image: "./Segregacion/Guantes.png", description: "Guantes de nitrilo o látex usados en experimentos. Contienen trazas de reactivos.", steps: ["Retirar sin tocar exterior", "Doblar y envolver", "Colocar en bolsa roja", "Sellar y rotular"], destiny: "TACHO NEGRO", colorClass: "bg-slate-700 text-white", advice: "EPP contaminados pueden contener trazas de reactivos o microorganismos que comprometen la bioseguridad." },
   // NUEVO 3
