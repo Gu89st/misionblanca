@@ -131,18 +131,54 @@ export default function SegregacionPage() {
 
 
 
-       <footer className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 text-center text-slate-500 text-sm">
-        <p>© 2026 Programa Nacional Antártico - Gestión Ambiental ECAMP</p>
-        <p className="text-xs text-slate-600">
-          Diseño y Desarrollo: <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold">Alberto Sarapura G.</a>
+<footer className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 pb-12">
+  <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+    
+    {/* LADO IZQUIERDO: CRÉDITOS */}
+    <div className="text-center md:text-left space-y-3">
+      <p className="text-slate-400 font-medium">
+        © 2026 Programa Nacional Antártico - Gestión Ambiental ECAMP
+      </p>
+      
+      <div className="flex flex-col gap-1.5 text-xs text-slate-600">
+        <p>
+          Diseño y Desarrollo:{" "}
+          <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold cursor-pointer">
+            Alberto Sarapura G.
+          </a>
         </p>
-        <p className="text-xs text-slate-600">
-          Autor 1: <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold">Miguel Mucha Torre</a>
-        </p>
-        <p className="text-xs text-slate-600">
-          Autor 2: <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold">Melany Deysi Chipana Fernández</a>
-        </p>
-      </footer>
+        
+        {/* Agrupamos autores */}
+        <div className="flex flex-col sm:flex-row sm:gap-4">
+          <p>
+            Autor 1:{" "}
+            <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold cursor-pointer">
+              Miguel Mucha Torre
+            </a>
+          </p>
+          {/* Separador visible solo en desktop */}
+          <span className="hidden sm:block text-slate-800">|</span>
+          <p>
+            Autor 2:{" "}
+            <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold cursor-pointer">
+              Melany Deysi Chipana Fernández
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* LADO DERECHO: LOGO USIL */}
+    <div className="flex items-center justify-center shrink-0">
+      <img 
+        src="./Docs/Usil.jpg" 
+        alt="Logo USIL" 
+        className="h-16 w-auto object-contain rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-300"
+      />
+    </div>
+
+  </div>
+</footer>
     </div>
   );
 }
