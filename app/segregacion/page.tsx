@@ -26,8 +26,8 @@ interface MaterialInfo {
 // --- CONSTANTES DE DATOS SECCIÓN I (ACTUALIZADAS CON TUS PEDIDOS) ---
 
 const bebidas: MaterialInfo[] = [
-  { id: "pet-1", title: "Botellas de Agua/Gaseosa", image: "./Segregacion/Botellas.png", description: "Plástico PET altamente reciclable. Debe entregarse limpio y compactado.", steps: ["Enjuagar bien", "Secar o escurrir", "Aplastar verticalmente"], destiny: "TACHO BLANCO", colorClass: "bg-white text-slate-900", advice: "La compactación vertical maximiza la eficiencia del almacenamiento en la base." },
-  { id: "hdpe-2", title: "Yogurt, Lácteos y Shampoo", image: "./Segregacion/Lacteos.png", description: "Plásticos densos que requieren eliminación total de residuos orgánicos.", steps: ["Enjuague obligatorio", "Quitar etiquetas", "Aplastar"], destiny: "TACHO BLANCO", colorClass: "bg-white text-slate-900", advice: "Lave inmediatamente después del uso para evitar fermentación y olores." },
+  { id: "pet-1", title: "Botellas de Agua/Gaseosa", image: "./Segregacion/Botellas.png", description: "Plástico PET altamente reciclable. Debe entregarse limpio y compactado.", steps: ["Vaciar contenido", "Enjuagar ligero de ser posible", "Quitar etiquetas de ser posibles (Etiqueta: No aprovechable - Tacho negro)", "Aplastar para reeducir volumen"], destiny: "TACHO BLANCO", colorClass: "bg-white text-slate-900", advice: "La compactación vertical maximiza la eficiencia del almacenamiento en la base." },
+  { id: "hdpe-2", title: "Yogurt, Lácteos y Shampoo", image: "./Segregacion/Lacteos.png", description: "Plásticos densos que requieren eliminación total de residuos orgánicos.", steps: ["Vaciar contenido", "Enjuagar ligero de ser posible", "Quitar etiquetas de ser posibles (Etiqueta: No aprovechable - Tacho negro)", "Aplastar para reeducir volumen"], destiny: "TACHO BLANCO", colorClass: "bg-white text-slate-900", advice: "Lave inmediatamente después del uso para evitar fermentación y olores." },
   { id: "aluminio", title: "Latas de Bebidas", image: "./Segregacion/Latas.png", description: "Aluminio ligero. Su reciclaje ahorra un 95% de energía en producción.", steps: ["Vaciar contenido", "Enjuagar ligero de ser posible", "Quitar etiquetas de ser posibles (Etiqueta: No aprovechable - Tacho negro)", "Aplastar para reeducir volumen"], destiny: "TACHO AZUL", colorClass: "bg-blue-600 text-white", advice: "El aluminio limpio mantiene el valor más alto de recuperación en el mercado." },
   { id: "hojalata", title: "Latas de Conservas", image: "./Segregacion/conservas.png", description: "Hojalata (atún, duraznos). Cuidado con los bordes cortantes.", steps: ["Retirar restos de comida o contenido interior", "Enjuagar de ser posible", "Secar de ser posible", "No deformar peligrosamente"], destiny: "TACHO AZUL", colorClass: "bg-blue-600 text-white", advice: "La limpieza evita vectores (insectos) y mejora la calidad del metal reciclado." },
   { id: "tetra", title: "Envases Tetra Pak", image: "./Segregacion/Tetra_pak.png", description: "Multicapa (cartón, aluminio, plástico). Se gestiona junto al papel y cartón.", steps: ["Enjuagar bien", "Desplegar esquinas", "Aplastar"], destiny: "TACHO AMARILLO", colorClass: "bg-yellow-400 text-black", advice: "Desplegar las pestañas permite un aplastado total, ahorrando 70% de espacio." },
@@ -194,8 +194,8 @@ export default function ManualSegregacionPage() {
             <h4 className="flex items-center gap-3 text-emerald-400 font-black uppercase mb-8 text-xl"><CheckCircle2 /> ¿Qué ingresa?</h4>
             <ul className="space-y-4 text-slate-300 text-sm">
               <li><strong>Desechos de cocina:</strong> Sobrantes de comida procesada, carnes, huesos y cáscaras (sin líquidos).</li>
-              <li><strong>Hojas</strong> </li>
-              <li><strong>Granos:</strong>.</li>
+              <li><strong>Hojas:</strong> Semillas y restos crudos o cocidos. </li>
+              <li><strong>Granos:</strong> Podas, granos y posos de café (sin líquidos).</li>
             </ul>
           </div>
           <div className="bg-red-500/5 border border-red-500/10 rounded-[2.5rem] p-10">
@@ -391,12 +391,61 @@ export default function ManualSegregacionPage() {
         </div>
       </div>
 
-      <footer className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 text-center text-slate-500 text-sm">
-        <p>© 2026 Programa Nacional Antártico - Gestión Ambiental ECAMP</p>
-        <p className="text-xs text-slate-600">
-          Diseño y Desarrollo: <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold">Alberto Sarapura G.</a>
+     <footer className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 pb-12">
+  <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+    
+    {/* LADO IZQUIERDO: CRÉDITOS */}
+    <div className="text-center md:text-left space-y-3">
+      <p className="text-slate-400 font-medium">
+        © 2026 Programa Nacional Antártico - Gestión Ambiental ECAMP 
+      </p>
+            {/* Agrupamos autores */}
+        <div className="flex flex-col sm:flex-row sm:gap-3">
+          <p className="text-slate-400 font-medium">
+        Autores Delegación Usil
+          </p>
+          <p>
+      
+            <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold cursor-pointer">
+              Miguel Mucha Torre
+            </a>
+          </p>
+          {/* Separador visible solo en desktop */}
+          <span className="hidden sm:block text-slate-800">|</span>
+          <p>
+    
+            <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold cursor-pointer">
+              Melany Deysi Chipana Fernández
+            </a>
+          </p>
+        </div>  
+      <div className="sm:gap-4 text-slate-200 font-bold group-hover:text-white transition-colors">
+        <p>
+          Diseñador y Desarrollador :{" "}
+          <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold cursor-pointer">
+            Alberto Sarapura G.
+          </a>
         </p>
-      </footer>
+      </div>
+    </div>
+
+    {/* LADO DERECHO: LOGO USIL */}
+    <div className="flex flex-col items-center justify-center shrink-0 gap-2">
+  <img 
+    src="./Docs/Usil.jpg" 
+    alt="Logo USIL" 
+    className="h-16 w-auto object-contain rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-300"
+  />
+  <p className="text-center text-slate-500 font-bold text-[10px] leading-tight max-w-45">
+    FACULTAD DE INGENIERÍA
+  </p>
+  <p className="text-center text-slate-500 font-bold text-[10px] leading-tight max-w-45">
+    Carrera de ingeniería ambiental
+  </p>
+</div>
+{/* FACULTAD DE INGENIERÍA E INTELIGENCIA ARTIFICIAL */}
+  </div>
+</footer>
     </div>
     </div>
   );

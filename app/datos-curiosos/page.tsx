@@ -73,7 +73,33 @@ export default function DatosCuriososPage() {
           ))}
         </div>
       </section>
-
+{/* --- NUEVO: VIDEO DESTACADO CENTRADO --- */}
+  <div className="w-full max-w-4xl mx-auto mt-20 flex flex-col items-center"> {/* 1. Centrado General */}
+      
+      {/* TÍTULO */}
+      <div className="flex items-center gap-1 mb-6"> {/* 2. Quitamos md:justify-start */}
+          {/* Si quieres el icono de Youtube, impórtalo y úsalo aquí */}
+          <span className="text-blue-400 font-bold uppercase tracking-widest text-sm">Video Destacado del Mes</span>
+      </div>
+      
+      {/* VIDEO (Formato Celular) */}
+      {/* Nota: Asegúrate de usar aspect-[3/4] con corchetes para Tailwind arbitrario */}
+      <div className="relative aspect-3/4 w-full max-w-xs rounded-3xl overflow-hidden border-4 border-white/10 shadow-[0_0_40px_-10px_rgba(59,130,246,0.2)] bg-black ring-1 ring-white/20">
+          <video 
+            className="w-full h-full object-cover" 
+            controls 
+            preload="metadata"
+          >
+            <source src="/Docs/Video.mp4" type="video/mp4" />
+            Tu navegador no soporta la reproducción de video.
+          </video>
+      </div>
+      
+      {/* TEXTO DESCRIPTIVO */}
+      <p className="text-center text-slate-500 text-sm mt-6 italic max-w-xs">
+          Descubre cómo es el día a día en una expedición científica antártica.
+      </p>
+</div>
       {/* 2. GALERÍA DE VIDEOS - FILAS DE 3 */}
       <section className="mb-24">
         <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
@@ -102,12 +128,61 @@ export default function DatosCuriososPage() {
           ))}
         </div>
       </section>
-           <footer className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 text-center text-slate-500 text-sm">
-        <p>© 2026 Programa Nacional Antártico - Gestión Ambiental ECAMP</p>
-        <p className="text-xs text-slate-600">
-          Diseño y Desarrollo: <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold">Alberto Sarapura G.</a>
+      <footer className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 pb-12">
+  <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+    
+    {/* LADO IZQUIERDO: CRÉDITOS */}
+    <div className="text-center md:text-left space-y-3">
+      <p className="text-slate-400 font-medium">
+        © 2026 Programa Nacional Antártico - Gestión Ambiental ECAMP 
+      </p>
+            {/* Agrupamos autores */}
+        <div className="flex flex-col sm:flex-row sm:gap-3">
+          <p className="text-slate-400 font-medium">
+        Autores Delegación Usil
+          </p>
+          <p>
+      
+            <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold cursor-pointer">
+              Miguel Mucha Torre
+            </a>
+          </p>
+          {/* Separador visible solo en desktop */}
+          <span className="hidden sm:block text-slate-800">|</span>
+          <p>
+    
+            <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold cursor-pointer">
+              Melany Deysi Chipana Fernández
+            </a>
+          </p>
+        </div>  
+      <div className="sm:gap-4 text-slate-200 font-bold group-hover:text-white transition-colors">
+        <p>
+          Diseñador y Desarrollador :{" "}
+          <a target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors font-semibold cursor-pointer">
+            Alberto Sarapura G.
+          </a>
         </p>
-      </footer>
+      </div>
+    </div>
+
+    {/* LADO DERECHO: LOGO USIL */}
+    <div className="flex flex-col items-center justify-center shrink-0 gap-2">
+  <img 
+    src="./Docs/Usil.jpg" 
+    alt="Logo USIL" 
+    className="h-16 w-auto object-contain rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-300"
+  />
+  <p className="text-center text-slate-500 font-bold text-[10px] leading-tight max-w-45">
+    FACULTAD DE INGENIERÍA
+  </p>
+  <p className="text-center text-slate-500 font-bold text-[10px] leading-tight max-w-45">
+    Carrera de ingeniería ambiental
+  </p>
+</div>
+{/* FACULTAD DE INGENIERÍA E INTELIGENCIA ARTIFICIAL */}
+  </div>
+</footer>
     </div>
   );
 }
