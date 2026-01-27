@@ -35,6 +35,16 @@ const documentos = [
     titulo: "Microfibras textiles en la fauna del mar de Ross.",
     imagen: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=800",
     archivo: "/Microfibrastextiles.pdf", // Quité el punto inicial
+  },
+  {
+    titulo: "Taller antartico XXXII.",
+    imagen: "./Docs/TallerAntarticoXXXII.jpg", // Quité el punto inicial
+    archivo: "/TallerAntarticoXXXII.pdf", // Quité el punto inicial
+  },
+  {
+    titulo: "Exposición gestión y evaluación de residuos solidos.",
+    imagen: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
+    archivo: "/EXPOSICION_GESTION_Y_EVALUACION_DE_RESIDUOS_SOLIDOS.pdf", // Quité el punto inicial
   }
 ];
 
